@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
-import { Card, CardContent } from '@/components/ui/card';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+
+import { Card, CardContent } from '../ui/card';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/tabs';
+
 import { motion } from 'framer-motion';
 import 'chart.js/auto';
 
@@ -16,35 +18,22 @@ const explanations = {
   gpi: 'GPI는 CSD의 곡률이 최대인 지점으로, 고장 발생 시점을 추정합니다.'
 };
 
-const useSimulatedData = (label, interval = 1000) => {
-  const [data, setData] = useState({ labels: [], datasets: [] });
-  useEffect(() => {
-    const update = () => {
-      const t = Array.from({ length: 200 }, (_, i) => (i / 10).toFixed(2));
-      const y = t.map(() => Math.random());
-      setData({
-        labels: t,
-        datasets: [{
-          label,
-          data: y,
-          borderColor: 'rgba(100, 100, 255, 0.8)',
-          fill: false,
-          tension: 0.3
-        }],
-      });
-    };
-    update();
-    const id = setInterval(update, interval);
-    return () => clearInterval(id);
-  }, [label]);
-  return data;
-};
-
 const allTabs = ['raw', 'rms', 'esp', 'sre', 'gap', 'das', 'csd', 'gpi'];
 
 export default function WaferwatchDashboard() {
   const [tab, setTab] = useState('raw');
-  const chartData = useSimulatedData(tab.toUpperCase());
+  const [chartData, setChartData] = useState(null);
+
+  useEffect(() => {
+    fetch('/chart_data.json')
+      .then(res => res.json())
+      .then(data => setChartData(data))
+      .catch(err => console.error("Failed to load chart data:", err));
+  }, []);
+
+  if (!chartData) {
+    return <div className="p-6 text-lg">로딩 중... (Loading chart data)</div>;
+  }
 
   return (
     <div className="p-6">
@@ -52,7 +41,9 @@ export default function WaferwatchDashboard() {
       <Tabs value={tab} onValueChange={setTab}>
         <TabsList className="mb-4 grid grid-cols-4 gap-2">
           {allTabs.map((key) => (
-            <TabsTrigger key={key} value={key}>{key.toUpperCase()}</TabsTrigger>
+            <TabsTrigger key={key} value={key}>
+              {key.toUpperCase()}
+            </TabsTrigger>
           ))}
         </TabsList>
 
@@ -61,7 +52,7 @@ export default function WaferwatchDashboard() {
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <Card className="mb-4">
                 <CardContent className="p-4">
-                  <Line data={chartData} />
+                  <Line data={chartData[key]} />
                 </CardContent>
               </Card>
               <Card>
