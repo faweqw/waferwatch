@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 
@@ -10,60 +10,184 @@ const explanations = {
   gap: 'GAP는 고장 신호 SRE와 정상 신호 SRE의 차이를 나타냅니다.',
   das: 'DAS는 GAP의 곡률(가속도)로 급격한 변화점을 탐지합니다.',
   csd: 'CSD는 두 SRE 간의 누적 차이를 나타내는 지표입니다.',
-  gpi: 'GPI는 CSD의 곡률이 최대인 지점으로, 고장 발생 시점을 추정합니다.'
+  gpi: 'GPI는 CSD의 곡률이 최대인 지점으로, 고장 발생 시점을 추정합니다.',
 };
 
 const allTabs = ['raw', 'rms', 'esp', 'sre', 'gap', 'das', 'csd', 'gpi'];
 
-export default function WaferwatchDashboard() {
+export default function WaferwatchFullDashboard() {
+  const canvasRef = useRef(null);
+  const frameRef = useRef(0);
+  const dataRef = useRef(null);
   const [tab, setTab] = useState('raw');
+  const [showChart, setShowChart] = useState(true);
   const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
     fetch('/chart_data.json')
       .then(res => res.json())
-      .then(data => setChartData(data))
-      .catch(err => console.error("Failed to load chart data:", err));
+      .then(json => {
+        dataRef.current = json;
+        updateChart(json);
+        requestAnimationFrame(draw);
+      });
   }, []);
 
-  if (!chartData) {
-    return <div style={{ padding: '20px' }}>로딩 중... (Loading chart data)</div>;
-  }
+  const updateChart = (json) => {
+    const entry = json[tab];
+    if (entry) {
+      const labels = entry.labels;
+      const data = entry.datasets[0].data;
+      setChartData({
+        labels,
+        datasets: [{
+          label: tab.toUpperCase(),
+          data,
+          borderColor: 'rgba(75,192,192,1)',
+          fill: false,
+          tension: 0.3
+        }]
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (dataRef.current) updateChart(dataRef.current);
+  }, [tab]);
+
+  const getValue = (key, frame) => {
+    const d = dataRef.current?.[key]?.datasets?.[0]?.data || [];
+    return d[frame % d.length] ?? 0;
+  };
+
+  const draw = () => {
+    if (!dataRef.current || showChart) {
+      requestAnimationFrame(draw);
+      return;
+    }
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    const frame = frameRef.current;
+    const cx = canvas.width / 2;
+    const cy = canvas.height / 2;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const raw = getValue("raw", frame);
+    const rms = getValue("rms", frame);
+    const esp = getValue("esp", frame);
+    const sre = getValue("sre", frame);
+    const gap = getValue("gap", frame);
+    const das = getValue("das", frame);
+    const csd = getValue("csd", frame);
+    const gpi = getValue("gpi", frame);
+
+    ctx.beginPath();
+    ctx.moveTo(0, cy);
+    for (let x = 0; x < canvas.width; x++) {
+      const y = cy + Math.sin(x * 0.05 + frame * 0.1) * 5 + raw * 2;
+      ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = "#ccc";
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(cx - 150, cy, 30 + rms * 40, 0, Math.PI * 2);
+    ctx.fillStyle = "#3498db";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(cx + 150, cy, 30, 0, Math.PI * 2);
+    const sat = Math.min(Math.max(esp * 100, 0), 100);
+    ctx.fillStyle = `hsl(200, ${sat}%, 50%)`;
+    ctx.fill();
+
+    const offset = Math.sin(frame * 0.3 + sre) * 10;
+    ctx.fillStyle = "#f1c40f";
+    ctx.fillRect(cx - 30 + offset, cy - 100, 40, 40);
+
+    const dGap = gap * 100;
+    ctx.beginPath();
+    ctx.arc(cx - dGap / 2, cy + 100, 20, 0, Math.PI * 2);
+    ctx.arc(cx + dGap / 2, cy + 100, 20, 0, Math.PI * 2);
+    ctx.fillStyle = "#e67e22";
+    ctx.fill();
+
+    ctx.fillStyle = "#2ecc71";
+    ctx.fillRect(cx + das * 30, cy - 150, 30, 30);
+
+    const csdX = (csd * 20 + canvas.width) % canvas.width;
+    ctx.beginPath();
+    ctx.arc(csdX, 30, 6, 0, Math.PI * 2);
+    ctx.fillStyle = "#9b59b6";
+    ctx.fill();
+
+    if (gpi > 1.5 && Math.floor(frame / 10) % 2 === 0) {
+      ctx.beginPath();
+      ctx.arc(cx, 50, 10, 0, Math.PI * 2);
+      ctx.fillStyle = "red";
+      ctx.fill();
+    }
+
+    frameRef.current++;
+    requestAnimationFrame(draw);
+  };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
-        Waferwatch 전류/진동 분석 대시보드
-      </h1>
+    <div style={{ background: '#111', padding: '20px', color: '#fff', fontFamily: 'sans-serif' }}>
+      <h2 style={{ marginBottom: '12px' }}>Waferwatch 통합 대시보드</h2>
 
       {/* 탭 버튼 */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
-        {allTabs.map((key) => (
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
+        {allTabs.map(key => (
           <button
             key={key}
             onClick={() => setTab(key)}
             style={{
-              padding: '8px 12px',
-              border: '1px solid #ccc',
-              background: tab === key ? '#007bff' : '#f9f9f9',
-              color: tab === key ? 'white' : 'black',
+              padding: '6px 12px',
+              background: tab === key ? '#007bff' : '#333',
+              color: 'white',
+              border: 'none',
               borderRadius: '4px',
               cursor: 'pointer'
-            }}
-          >
+            }}>
             {key.toUpperCase()}
           </button>
         ))}
+        <button
+          onClick={() => setShowChart(!showChart)}
+          style={{
+            marginLeft: 'auto',
+            background: '#555',
+            padding: '6px 12px',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            color: 'white'
+          }}>
+          {showChart ? '🧠 시각화 보기' : '📊 그래프 보기'}
+        </button>
       </div>
 
-      {/* 차트 카드 */}
-      <div style={{ border: '1px solid #ddd', padding: '16px', borderRadius: '8px', marginBottom: '12px' }}>
-        <Line data={chartData[tab]} />
-      </div>
+      {/* 메인 콘텐츠 */}
+      {showChart ? (
+        <div style={{ background: '#fff', borderRadius: 8, padding: '16px' }}>
+          {chartData && <Line data={chartData} />}
+        </div>
+      ) : (
+        <canvas ref={canvasRef} width={800} height={400} style={{ background: '#fff', borderRadius: 8 }} />
+      )}
 
       {/* 설명 카드 */}
-      <div style={{ border: '1px solid #eee', padding: '16px', borderRadius: '8px', background: '#fafafa' }}>
-        {explanations[tab]}
+      <div style={{
+        marginTop: '16px',
+        padding: '12px',
+        background: '#222',
+        borderRadius: '8px',
+        fontSize: '16px',
+        lineHeight: 1.5
+      }}>
+        <strong>{tab.toUpperCase()}</strong>: {explanations[tab]}
       </div>
     </div>
   );
