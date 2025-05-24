@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
-
-import { Card, CardContent } from '../ui/card';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/tabs';
-
-import { motion } from 'framer-motion';
 import 'chart.js/auto';
 
 const explanations = {
@@ -32,38 +27,44 @@ export default function WaferwatchDashboard() {
   }, []);
 
   if (!chartData) {
-    return <div className="p-6 text-lg">로딩 중... (Loading chart data)</div>;
+    return <div style={{ padding: '20px' }}>로딩 중... (Loading chart data)</div>;
   }
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Waferwatch 전류/진동 분석 대시보드</h1>
-      <Tabs value={tab} onValueChange={setTab}>
-        <TabsList className="mb-4 grid grid-cols-4 gap-2">
-          {allTabs.map((key) => (
-            <TabsTrigger key={key} value={key}>
-              {key.toUpperCase()}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+      <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
+        Waferwatch 전류/진동 분석 대시보드
+      </h1>
 
+      {/* 탭 버튼 */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
         {allTabs.map((key) => (
-          <TabsContent key={key} value={key}>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <Card className="mb-4">
-                <CardContent className="p-4">
-                  <Line data={chartData[key]} />
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-4 text-base">
-                  {explanations[key]}
-                </CardContent>
-              </Card>
-            </motion.div>
-          </TabsContent>
+          <button
+            key={key}
+            onClick={() => setTab(key)}
+            style={{
+              padding: '8px 12px',
+              border: '1px solid #ccc',
+              background: tab === key ? '#007bff' : '#f9f9f9',
+              color: tab === key ? 'white' : 'black',
+              borderRadius: '4px',
+              cursor: 'pointer'
+            }}
+          >
+            {key.toUpperCase()}
+          </button>
         ))}
-      </Tabs>
+      </div>
+
+      {/* 차트 카드 */}
+      <div style={{ border: '1px solid #ddd', padding: '16px', borderRadius: '8px', marginBottom: '12px' }}>
+        <Line data={chartData[tab]} />
+      </div>
+
+      {/* 설명 카드 */}
+      <div style={{ border: '1px solid #eee', padding: '16px', borderRadius: '8px', background: '#fafafa' }}>
+        {explanations[tab]}
+      </div>
     </div>
   );
 }

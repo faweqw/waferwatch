@@ -1,11 +1,11 @@
+// src/App.js
 import React from 'react';
-import ChartTabs from './components/ChartTabs';
+import WaferwatchDashboard from './components/WaferwatchDashboard';
 
 function App() {
   return (
-    <div style={{ padding: 24 }}>
-      <h1 style={{ fontSize: 24, fontWeight: 'bold' }}>Waferwatch 대시보드</h1>
-      <ChartTabs />
+    <div>
+      <WaferwatchDashboard />
     </div>
   );
 }
