@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ChartDashboard from './components/ChartDashboard';
 import VisualDashboard from './components/VisualDashboard';
+import Navbar from './components/Navbar';
 
 export default function App() {
   return (
