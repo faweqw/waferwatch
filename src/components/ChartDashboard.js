@@ -113,6 +113,7 @@ export default function ChartDashboard() {
       </div>
             {/* 📌 설명 카드 */}
       <div style={{
+
         marginTop: '20px',
         padding: '16px',
         background: '#f9f9f9',
@@ -122,7 +123,7 @@ export default function ChartDashboard() {
         color: '#333',
         lineHeight: 1.6
       }}>
-        <strong>{tab.toUpperCase()}</strong>: {explanations[tab]}
+        <strong style={{fontFamily: 'Hanna11, sans-serif' }}>{tab.toUpperCase()}</strong>: {explanations[tab]}
       </div>
     </div>
   );
