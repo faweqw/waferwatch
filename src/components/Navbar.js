@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 
 const navButtonStyle = {
+  fontFamily: 'Hanna11, sans-serif',
   padding: '10px 16px',
   borderRadius: '12px',
   background: '#eee',

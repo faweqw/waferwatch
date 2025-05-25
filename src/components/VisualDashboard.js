@@ -137,7 +137,8 @@ export default function VisualDashboard() {
         color: '#333'
       }}>
         <strong>🎨 변수 설명:</strong>
-  <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+  <ul style={{ marginTop: '10px', paddingLeft: '20px',
+  fontFamily: 'Hanna11, sans-serif'  }}>
     <li><span style={{ color: '#666' }}><strong>RAW</strong></span>: 원신호 (센서 전류/진동 파형)</li>
     <li><span style={{ color: '#1565c0' }}><strong>RMS</strong></span>: 진폭 평균 (파란 원 크기)</li>
     <li><span style={{ color: '#0277bd' }}><strong>ESP</strong></span>: 주파수 복잡도 (오른쪽 원 색상)</li>

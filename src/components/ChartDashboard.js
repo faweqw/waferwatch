@@ -67,7 +67,8 @@ export default function ChartDashboard() {
         <div style={{ background: '#f1f1f4', minHeight: '100vh', padding: '24px', fontFamily: 'sans-serif' }}>
 
 
-      <h2 style={{ marginBottom: '12px' }}>📊 Waferwatch 그래프 모드</h2>
+      <h2 style={{ marginBottom: '12px',
+  fontFamily: 'Hanna11, sans-serif' }}>📊 Waferwatch 그래프 모드</h2>
 
       {/* 탭 선택 */}
       <div style={{ display: 'flex', gap: '6px', marginBottom: '12px', flexWrap: 'wrap' }}>
