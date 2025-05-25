@@ -42,3 +42,27 @@ h2 {
   padding: 24px;
   height: 400px;
 }
+
+/* public/waferwatch_style.css */
+.top-nav {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.top-nav a {
+  padding: 10px 20px;
+  border-radius: 16px;
+  background: #e0e0e0;
+  box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  color: #444;
+  transition: 0.3s;
+}
+
+.top-nav a:hover {
+  box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
+  color: #222;
+}

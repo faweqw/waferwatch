@@ -4,13 +4,20 @@ export default function VisualDashboard() {
   const canvasRef = useRef(null);
   const dataRef = useRef(null);
   const frameRef = useRef(0);
+  const lastTimeRef = useRef(performance.now());
+  const speedFactor = 0.25; // 🔧 1.0 = 기본 속도, 0.25 = 4배 느림
 
-  const draw = () => {
+  const draw = (now) => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
     if (!dataRef.current || !canvas || !ctx) return;
 
-    const frame = frameRef.current;
+    // 시간 기반 프레임 증가
+    const deltaTime = now - lastTimeRef.current;
+    lastTimeRef.current = now;
+    frameRef.current += speedFactor * deltaTime / 16.67; // 16.67 ≈ 60fps 기준
+    const frame = Math.floor(frameRef.current);
+
     const cx = canvas.width / 2;
     const cy = canvas.height / 2;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -29,6 +36,8 @@ export default function VisualDashboard() {
     const csd = getSafeValue("csd");
     const gpi = getSafeValue("gpi");
 
+    // === 시각화 요소 ===
+
     // raw waveform
     ctx.beginPath();
     ctx.moveTo(0, cy);
@@ -39,25 +48,24 @@ export default function VisualDashboard() {
     ctx.strokeStyle = "#ccc";
     ctx.stroke();
 
-    // 기타 시각화 요소 동일 (위 코드 참고)
-        // rms: 왼쪽 원
+    // rms: 왼쪽 원
     ctx.beginPath();
     ctx.arc(cx - 220, cy, Math.max(1, 30 + rms * 40), 0, Math.PI * 2);
     ctx.fillStyle = "#3498db";
     ctx.fill();
 
-    // esp: 오른쪽 원
+    // esp: 오른쪽 원 색상
     ctx.beginPath();
     ctx.arc(cx + 220, cy, 30, 0, Math.PI * 2);
     ctx.fillStyle = `hsl(200, ${Math.min(Math.max(esp * 100, 0), 100)}%, 50%)`;
     ctx.fill();
 
-    // sre: 진동하는 네모
+    // sre: 진동하는 사각형
     const offset = Math.sin(frame * 0.3 + sre) * 10;
     ctx.fillStyle = "#f1c40f";
     ctx.fillRect(cx - 30 + offset, cy - 100, 40, 40);
 
-    // gap: 두 원 간격
+    // gap: 두 원 사이 거리
     const dGap = gap * 100;
     ctx.beginPath();
     ctx.arc(cx - dGap / 2, cy + 100, 20, 0, Math.PI * 2);
@@ -65,7 +73,7 @@ export default function VisualDashboard() {
     ctx.fillStyle = "#e67e22";
     ctx.fill();
 
-    // das: 위 사각형 x 이동
+    // das: 위쪽 사각형 이동
     ctx.fillStyle = "#2ecc71";
     ctx.fillRect(cx + das * 30, cy - 150, 30, 30);
 
@@ -83,9 +91,8 @@ export default function VisualDashboard() {
       ctx.fill();
     }
 
-
-    frameRef.current++;
-    setTimeout(() => requestAnimationFrame(draw), 100);
+    // 다음 프레임
+    requestAnimationFrame(draw);
   };
 
   useEffect(() => {
@@ -93,18 +100,22 @@ export default function VisualDashboard() {
       .then(res => res.json())
       .then(json => {
         dataRef.current = json;
-        requestAnimationFrame(draw);
+        requestAnimationFrame(draw); // 첫 프레임 시작
       });
   }, []);
 
   return (
-    <div>
-      <h2>🧠 Waferwatch 시각화 모드</h2>
+    <div style={{ padding: '20px', background: '#f4f4f4', fontFamily: 'sans-serif' }}>
+      <h2 style={{ marginBottom: '12px' }}>🧠 Waferwatch 시각화 모드</h2>
       <canvas
         ref={canvasRef}
         width={800}
         height={400}
-        style={{ background: '#fff', borderRadius: 8 }}
+        style={{
+          background: '#fff',
+          borderRadius: '8px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+        }}
       />
     </div>
   );
