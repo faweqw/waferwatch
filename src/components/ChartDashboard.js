@@ -57,7 +57,8 @@ export default function ChartDashboard() {
         <div style={{ background: '#f1f1f4', minHeight: '100vh', padding: '24px', fontFamily: 'sans-serif' }}>
 
       {/* ✅ 상단 내비 버튼 */}
-      <div style={{ display: 'flex', gap: '12px', marginBottom: '20px' }}>
+      <div style={{ display: 'flex',     flexDirection: 'column', // 🔥 세로로 쌓기
+    alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
         <Link to="/" style={navButtonStyle}>📊 그래프 모드</Link>
         <Link to="/visual" style={navButtonStyle}>🧠 시각화 모드</Link>
       </div>
