@@ -123,7 +123,15 @@ export default function ChartDashboard() {
         color: '#333',
         lineHeight: 1.6
       }}>
-        <strong style={{fontFamily: 'Hanna11, sans-serif' }}>{tab.toUpperCase()}</strong>: {explanations[tab]}
+        <div>
+          <strong style={{ fontFamily: 'Hanna11, sans-serif' }}>
+            {tab.toUpperCase()}
+          </strong>:
+          <span style={{ fontFamily: 'Hanna11, sans-serif', marginLeft: 4 }}>
+            {explanations[tab]}
+          </span>
+        </div>
+
       </div>
     </div>
   );
