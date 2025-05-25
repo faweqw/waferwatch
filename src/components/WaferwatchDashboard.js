@@ -1,133 +1,202 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Line } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  LineElement,
-  PointElement,
-  LinearScale,
-  CategoryScale,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import 'chart.js/auto';
 
-ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Title, Tooltip, Legend);
-
-const variableDescriptions = {
-  RAW: "센서에서 측정된 원시 전류 신호입니다.",
-  RMS: "신호의 에너지를 나타내는 지표로, 원의 크기로 표현됩니다.",
-  ESP: "주파수 영역의 복잡도를 나타내며, 색상 채도로 표현됩니다.",
-  SRE: "ESP 곡률의 변화로 리듬의 불안정성을 나타냅니다.",
-  GAP: "진폭 간격의 변화로 두 원의 거리로 표현됩니다.",
-  DAS: "이동 방향성을 가진 사각형으로, 신호 변화량을 나타냅니다.",
-  CSD: "시간에 따른 누적 거리로, 이동 점의 위치로 시각화됩니다.",
-  GPI: "이상 징후 경고 지표로, 기준 초과 시 점멸 경고를 발생시킵니다."
+const explanations = {
+  raw: '센서에서 측정한 전류/진동 원신호입니다.',
+  rms: 'RMS는 시간 창 기준 에너지 평균으로 진동 강도를 나타냅니다.',
+  esp: 'ESP는 주파수 영역의 복잡도를 나타냅니다.',
+  sre: 'SRE는 ESP 곡률 변화의 엔트로피로, 리듬 불안정성을 포착합니다.',
+  gap: 'GAP는 고장 신호 SRE와 정상 신호 SRE의 차이를 나타냅니다.',
+  das: 'DAS는 GAP의 곡률(가속도)로 급격한 변화점을 탐지합니다.',
+  csd: 'CSD는 두 SRE 간의 누적 차이를 나타내는 지표입니다.',
+  gpi: 'GPI는 CSD의 곡률이 최대인 지점으로, 고장 발생 시점을 추정합니다.',
 };
 
-const variableList = Object.keys(variableDescriptions);
+const allTabs = ['raw', 'rms', 'esp', 'sre', 'gap', 'das', 'csd', 'gpi'];
 
-export default function WaferwatchCanvas() {
+export default function WaferwatchFullDashboard() {
   const canvasRef = useRef(null);
   const frameRef = useRef(0);
   const dataRef = useRef(null);
-  const [selectedVar, setSelectedVar] = useState("RAW");
-  const [chartDataMap, setChartDataMap] = useState({});
+  const [tab, setTab] = useState('raw');
+  const [showChart, setShowChart] = useState(true);
+  const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
     fetch('/chart_data.json')
       .then(res => res.json())
       .then(json => {
         dataRef.current = json;
-
-        // 변수별 chart.js용 그래프 데이터 저장
-        const chartData = {};
-        for (let key of variableList) {
-          if (json[key]) {
-            chartData[key] = {
-              labels: json[key].labels,
-              datasets: [{
-                label: key,
-                data: json[key].datasets[0].data,
-                borderColor: json[key].datasets[0].borderColor,
-                tension: 0.3,
-                fill: false,
-              }]
-            };
-          }
-        }
-        setChartDataMap(chartData);
+        updateChart(json);
         requestAnimationFrame(draw);
       });
+  }, []);
 
-    const getValue = (key, frame) => {
-      const d = dataRef.current?.[key.toLowerCase()]?.datasets?.[0]?.data;
-      if (!d) return 0;
-      return d[frame % d.length] ?? 0;
-    };
+  const updateChart = (json) => {
+    const entry = json[tab];
+    if (entry) {
+      const labels = entry.labels;
+      const data = entry.datasets[0].data;
+      setChartData({
+        labels,
+        datasets: [{
+          label: tab.toUpperCase(),
+          data,
+          borderColor: 'rgba(75,192,192,1)',
+          fill: false,
+          tension: 0.3
+        }]
+      });
+    }
+  };
 
-    const draw = () => {
-      const canvas = canvasRef.current;
-      if (!canvas || !dataRef.current) {
-        requestAnimationFrame(draw);
-        return;
-      }
+useEffect(() => {
+  const draw = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext('2d');
 
-      const frame = frameRef.current;
-      const ctx = canvas.getContext('2d');
-      const cx = canvas.width / 2;
-      const cy = canvas.height / 2;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const val = getValue(selectedVar, frame);
-
-      // 예시 시각화: 단순 원 진동
-      ctx.beginPath();
-      const radius = Math.max(5, 30 + val * 30);
-      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-      ctx.fillStyle = "#3498db";
-      ctx.fill();
-
-      frameRef.current++;
+    if (!dataRef.current || !canvas || showChart) {
       requestAnimationFrame(draw);
+      return;
+    }
+
+    const frame = frameRef.current;
+    const cx = canvas.width / 2;
+    const cy = canvas.height / 2;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const getSafeValue = (key) => {
+      const arr = dataRef.current?.[key]?.datasets?.[0]?.data;
+      return arr ? arr[frame % arr.length] ?? 0 : 0;
     };
-  }, [selectedVar]);
+
+    const raw = getSafeValue("raw");
+    const rms = getSafeValue("rms");
+    const esp = getSafeValue("esp");
+    const sre = getSafeValue("sre");
+    const gap = getSafeValue("gap");
+    const das = getSafeValue("das");
+    const csd = getSafeValue("csd");
+    const gpi = getSafeValue("gpi");
+
+    // raw
+    ctx.beginPath();
+    ctx.moveTo(0, cy);
+    for (let x = 0; x < canvas.width; x++) {
+      const y = cy + Math.sin(x * 0.05 + frame * 0.1) * 5 + raw * 2;
+      ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = "#ccc";
+    ctx.stroke();
+
+    // rms
+    ctx.beginPath();
+    ctx.arc(cx - 150, cy, Math.max(1, 30 + rms * 40), 0, Math.PI * 2);
+    ctx.fillStyle = "#3498db";
+    ctx.fill();
+
+    // esp
+    ctx.beginPath();
+    ctx.arc(cx + 150, cy, 30, 0, Math.PI * 2);
+    ctx.fillStyle = `hsl(200, ${Math.min(Math.max(esp * 100, 0), 100)}%, 50%)`;
+    ctx.fill();
+
+    // sre
+    const offset = Math.sin(frame * 0.3 + sre) * 10;
+    ctx.fillStyle = "#f1c40f";
+    ctx.fillRect(cx - 30 + offset, cy - 100, 40, 40);
+
+    // gap
+    const dGap = gap * 100;
+    ctx.beginPath();
+    ctx.arc(cx - dGap / 2, cy + 100, 20, 0, Math.PI * 2);
+    ctx.arc(cx + dGap / 2, cy + 100, 20, 0, Math.PI * 2);
+    ctx.fillStyle = "#e67e22";
+    ctx.fill();
+
+    // das
+    ctx.fillStyle = "#2ecc71";
+    ctx.fillRect(cx + das * 30, cy - 150, 30, 30);
+
+    // csd
+    ctx.beginPath();
+    ctx.arc((csd * 20 + canvas.width) % canvas.width, 30, 6, 0, Math.PI * 2);
+    ctx.fillStyle = "#9b59b6";
+    ctx.fill();
+
+    // gpi
+    if (gpi > 1.5 && Math.floor(frame / 10) % 2 === 0) {
+      ctx.beginPath();
+      ctx.arc(cx, 50, 10, 0, Math.PI * 2);
+      ctx.fillStyle = "red";
+      ctx.fill();
+    }
+
+    frameRef.current++;
+    requestAnimationFrame(draw);
+  };
+
+  requestAnimationFrame(draw);
+}, [showChart]);
+
 
   return (
-    <div style={{ background: '#111', padding: '20px', color: '#fff' }}>
-      <h2 className="text-2xl font-bold mb-4">Waferwatch 전류/진동 분석 대시보드</h2>
+    <div style={{ background: '#111', padding: '20px', color: '#fff', fontFamily: 'sans-serif' }}>
+      <h2 style={{ marginBottom: '12px' }}>Waferwatch 통합 대시보드</h2>
 
-      <div className="flex flex-wrap gap-2 mb-6">
-        {variableList.map((key) => (
+      {/* 탭 버튼 */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
+        {allTabs.map(key => (
           <button
             key={key}
-            onClick={() => setSelectedVar(key)}
-            className={`px-4 py-2 rounded border ${selectedVar === key ? 'bg-blue-600 text-white' : 'bg-white text-black'}`}
-          >
-            {key}
+            onClick={() => setTab(key)}
+            style={{
+              padding: '6px 12px',
+              background: tab === key ? '#007bff' : '#333',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer'
+            }}>
+            {key.toUpperCase()}
           </button>
         ))}
+        <button
+          onClick={() => setShowChart(!showChart)}
+          style={{
+            marginLeft: 'auto',
+            background: '#555',
+            padding: '6px 12px',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            color: 'white'
+          }}>
+          {showChart ? '🧠 시각화 보기' : '📊 그래프 보기'}
+        </button>
       </div>
 
-      <div className="bg-white text-black rounded p-4 mb-4">
-        <h3 className="text-xl font-semibold">{selectedVar}</h3>
-        <p className="mt-2 text-sm text-gray-700">{variableDescriptions[selectedVar]}</p>
-      </div>
+      {/* 메인 콘텐츠 */}
+      {showChart ? (
+        <div style={{ background: '#fff', borderRadius: 8, padding: '16px' }}>
+          {chartData && <Line data={chartData} />}
+        </div>
+      ) : (
+        <canvas ref={canvasRef} width={800} height={400} style={{ background: '#fff', borderRadius: 8 }} />
+      )}
 
-      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-        <canvas ref={canvasRef} width={600} height={300} style={{ background: '#fff' }} />
-      </div>
-
-      <div className="bg-white rounded p-4">
-        {chartDataMap[selectedVar] ? (
-          <Line data={chartDataMap[selectedVar]} />
-        ) : (
-          <p className="text-gray-500">그래프 데이터를 불러오는 중...</p>
-        )}
+      {/* 설명 카드 */}
+      <div style={{
+        marginTop: '16px',
+        padding: '12px',
+        background: '#222',
+        borderRadius: '8px',
+        fontSize: '16px',
+        lineHeight: 1.5
+      }}>
+        <strong>{tab.toUpperCase()}</strong>: {explanations[tab]}
       </div>
     </div>
   );
 }
-
