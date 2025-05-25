@@ -54,7 +54,7 @@ h2 {
 
 
 .tab-button {
-    font-family: 'Hanna11' !important;
+  font-family: 'Hanna11' !important;
   padding: 10px 16px;
   background: #f0f0f3;
   border: none;
@@ -67,11 +67,13 @@ h2 {
 }
 
 .tab-button.active {
+   font-family: 'Hanna11' !important;
   background: #e0e0e0;
   box-shadow: inset 4px 4px 6px #bebebe, inset -4px -4px 6px #ffffff;
 }
 
 .chart-container {
+   font-family: 'Hanna11' !important;
   background: #f0f0f3;
   border-radius: 16px;
   box-shadow: inset 6px 6px 12px #d1d1d1, inset -6px -6px 12px #ffffff;
@@ -110,6 +112,7 @@ h2 {
 }
 
 .top-nav a:hover {
+   font-family: 'Hanna11' !important;
   box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
   color: #222;
 }
