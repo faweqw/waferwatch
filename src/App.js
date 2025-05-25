@@ -7,8 +7,8 @@ import Navbar from './components/Navbar';
 export default function App() {
   return (
     <Router>
-      <Navbar/>
       <div className="top-nav" style={{ padding: 20 }}>
+        <Navbar/>
         <Routes>
           <Route path="/" element={<ChartDashboard />} />
           <Route path="/visual" element={<VisualDashboard />} />
