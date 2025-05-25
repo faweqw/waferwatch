@@ -7,7 +7,7 @@ export default function App() {
   return (
     <Router>
       <div className="top-nav" style={{ padding: 20 }}>
-        <Navbar/>
+        {/*<Navbar/>*/}
         <Routes>
           <Route path="/" element={<ChartDashboard />} />
           <Route path="/visual" element={<VisualDashboard />} />
