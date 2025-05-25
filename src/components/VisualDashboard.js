@@ -85,7 +85,7 @@ export default function VisualDashboard() {
 
 
     frameRef.current++;
-    requestAnimationFrame(draw);
+    setTimeout(() => requestAnimationFrame(draw), 66);
   };
 
   useEffect(() => {
