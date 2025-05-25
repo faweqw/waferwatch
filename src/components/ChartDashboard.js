@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
+import { Link } from 'react-router-dom';
 
 const allTabs = ['raw', 'rms', 'esp', 'sre', 'gap', 'das', 'csd', 'gpi'];
 
@@ -52,8 +53,18 @@ export default function ChartDashboard() {
   };
 
   return (
-    <div>
-      <h2>📊 Waferwatch 그래프 모드</h2>
+
+        <div style={{ background: '#f1f1f4', minHeight: '100vh', padding: '24px', fontFamily: 'sans-serif' }}>
+
+      {/* ✅ 상단 내비 버튼 */}
+      <div style={{ display: 'flex', gap: '12px', marginBottom: '20px' }}>
+        <Link to="/" style={navButtonStyle}>📊 그래프 모드</Link>
+        <Link to="/visual" style={navButtonStyle}>🧠 시각화 모드</Link>
+      </div>
+
+      <h2 style={{ marginBottom: '12px' }}>📊 Waferwatch 그래프 모드</h2>
+
+      {/* 탭 선택 */}
       <div style={{ display: 'flex', gap: '6px', marginBottom: '12px', flexWrap: 'wrap' }}>
         {allTabs.map(key => (
           <button
@@ -73,6 +84,8 @@ export default function ChartDashboard() {
           </button>
         ))}
       </div>
+
+      {/* 그래프 */}
       <div style={{ background: '#fff', borderRadius: 8, padding: '16px', height: 400 }}>
         {chartData && (
           <Line
@@ -82,7 +95,11 @@ export default function ChartDashboard() {
               maintainAspectRatio: false,
               scales: {
                 x: { title: { display: true, text: 'Time (s)' } },
-                y: { title: { display: true, text: 'Value' }, suggestedMin: -1, suggestedMax: 1 }
+                y: {
+                  title: { display: true, text: 'Value' },
+                  suggestedMin: -6,
+                  suggestedMax: 6
+                }
               }
             }}
           />
@@ -104,3 +121,12 @@ export default function ChartDashboard() {
     </div>
   );
 }
+const navButtonStyle = {
+  padding: '10px 16px',
+  borderRadius: '12px',
+  background: '#eee',
+  boxShadow: '4px 4px 8px #d1d1d1, -4px -4px 8px #ffffff',
+  textDecoration: 'none',
+  color: '#333',
+  fontWeight: 'bold'
+};
