@@ -105,7 +105,7 @@ export default function VisualDashboard() {
   }, []);
 
   return (
-    <div>
+  <div>
     <div style={{ padding: '20px', background: '#f4f4f4', fontFamily: 'sans-serif' }}>
       <h2 style={{ marginBottom: '12px' }}>🧠 Waferwatch 시각화 모드</h2>
       <canvas
@@ -120,31 +120,31 @@ export default function VisualDashboard() {
       />
 
     </div>
-<div style={{
-  marginTop: '24px',
-  padding: '16px',
-  background: '#f9f9f9',
-  borderRadius: '12px',
-  boxShadow: 'inset 4px 4px 8px #d1d1d1, inset -4px -4px 8px #ffffff',
-  fontSize: '14px',
-  lineHeight: 1.6,
-  color: '#333'
-}}>
-  <strong>🎨 변수 설명:</strong>
+      <div style={{
+        marginTop: '24px',
+        padding: '16px',
+        background: '#f9f9f9',
+        borderRadius: '12px',
+        boxShadow: 'inset 4px 4px 8px #d1d1d1, inset -4px -4px 8px #ffffff',
+        fontSize: '14px',
+        lineHeight: 1.6,
+        color: '#333'
+      }}>
+        <strong>🎨 변수 설명:</strong>
   <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
-    <li><span style={{ color: '#ccc' }}>RAW</span>: 원신호 (센서 전류/진동 파형)</li>
-    <li><span style={{ color: '#3498db' }}>RMS</span>: 진폭 평균 (파란 원 크기)</li>
-    <li><span style={{ color: '#4da6ff' }}>ESP</span>: 주파수 복잡도 (오른쪽 원 색상)</li>
-    <li><span style={{ color: '#f1c40f' }}>SRE</span>: 리듬 불안정성 (진동하는 네모)</li>
-    <li><span style={{ color: '#e67e22' }}>GAP</span>: SRE 차이 (아래 두 원 거리)</li>
-    <li><span style={{ color: '#2ecc71' }}>DAS</span>: GAP 가속도 (위 사각형 이동)</li>
-    <li><span style={{ color: '#9b59b6' }}>CSD</span>: 누적 GAP (움직이는 보라 점)</li>
-    <li><span style={{ color: 'red' }}>GPI</span>: 고장 추정 지점 (깜빡이는 점)</li>
+    <li><span style={{ color: '#666' }}><strong>RAW</strong></span>: 원신호 (센서 전류/진동 파형)</li>
+    <li><span style={{ color: '#1565c0' }}><strong>RMS</strong></span>: 진폭 평균 (파란 원 크기)</li>
+    <li><span style={{ color: '#0277bd' }}><strong>ESP</strong></span>: 주파수 복잡도 (오른쪽 원 색상)</li>
+    <li><span style={{ color: '#f39c12' }}><strong>SRE</strong></span>: 리듬 불안정성 (진동하는 네모)</li>
+    <li><span style={{ color: '#ef6c00' }}><strong>GAP</strong></span>: SRE 차이 (아래 두 원 거리)</li>
+    <li><span style={{ color: '#388e3c' }}><strong>DAS</strong></span>: GAP 가속도 (위 사각형 이동)</li>
+    <li><span style={{ color: '#8e24aa' }}><strong>CSD</strong></span>: 누적 GAP (움직이는 보라 점)</li>
+    <li><span style={{ color: '#c62828' }}><strong>GPI</strong></span>: 고장 추정 지점 (깜빡이는 점)</li>
   </ul>
-</div>
+      </div>
 
 
-</div>
+  </div>
 
 
   );
