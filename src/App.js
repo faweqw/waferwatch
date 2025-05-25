@@ -1,13 +1,21 @@
-// src/App.js
 import React from 'react';
-import WaferwatchDashboard from './components/WaferwatchDashboard';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import ChartDashboard from './components/ChartDashboard';
+import VisualDashboard from './components/VisualDashboard';
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <WaferwatchDashboard />
-    </div>
+    <Router>
+      <div style={{ padding: 20 }}>
+        <nav style={{ marginBottom: 20 }}>
+          <Link to="/" style={{ marginRight: 10 }}>📊 그래프 모드</Link>
+          <Link to="/visual">🧠 시각화 모드</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<ChartDashboard />} />
+          <Route path="/visual" element={<VisualDashboard />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
-
-export default App;
