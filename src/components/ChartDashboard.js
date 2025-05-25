@@ -45,7 +45,7 @@ export default function ChartDashboard() {
       <h2>📊 Waferwatch 그래프 모드</h2>
       <div style={{ display: 'flex', gap: '6px', marginBottom: '12px' }}>
         {allTabs.map(key => (
-          <button key={key} onClick={() => setTab(key)}>{key.toUpperCase()}</button>
+          <button className="tab-button active" key={key} onClick={() => setTab(key)}>{key.toUpperCase()}</button>
         ))}
       </div>
       <div style={{ background: '#fff', borderRadius: 8, padding: '16px', height: 400 }}>
