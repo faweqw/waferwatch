@@ -25,6 +25,18 @@ const explanations = {
   gpi: "GPI: CSD 곡률이 가장 큰 지점, 즉 고장 타이밍의 추정치입니다. 압력이 폭발 직전에 가장 크게 휘어지는 지점과 같습니다. 🔑 예지 타이밍, 최대 곡률, 고장 시작점"
 };
 
+const chartColors = {
+  raw: '#666666',      // 회색
+  rms: '#1565c0',      // 파란색
+  esp: '#0277bd',      // 옅은 파랑
+  sre: '#f39c12',      // 노란색
+  gap: '#ef6c00',      // 주황
+  das: '#388e3c',      // 초록
+  csd: '#8e24aa',      // 보라
+  gpi: '#c62828',      // 빨강
+};
+
+
 
 export default function ChartDashboard() {
   const dataRef = useRef(null);
@@ -54,13 +66,14 @@ export default function ChartDashboard() {
         datasets: [{
           label: key.toUpperCase(),
           data: entry.datasets[0].data,
-          borderColor: 'rgba(75,192,192,1)',
+          borderColor: chartColors[key] || 'rgba(75,192,192,1)',  // ← 여기서 색 지정
           fill: false,
           tension: 0.3
         }]
       });
     }
   };
+
 
   return (
 
