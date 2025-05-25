@@ -9,11 +9,16 @@
 
 body {
   background: #f0f0f3;
-  font-family: 'Hanna11', sans-serif;
+  font-family: 'Hanna11' !important;
   color: #333;
   margin: 0;
   padding: 40px;
   box-sizing: border-box;
+}
+
+
+button {
+  font-family: 'Hanna11' !important;
 }
 
 @media (max-width: 768px) {
@@ -31,6 +36,7 @@ h2 {
 
 
 .tab-buttons {
+    font-family: 'Hanna11' !important;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -48,6 +54,7 @@ h2 {
 
 
 .tab-button {
+    font-family: 'Hanna11' !important;
   padding: 10px 16px;
   background: #f0f0f3;
   border: none;
@@ -83,6 +90,7 @@ h2 {
 
 
 .top-nav {
+    font-family: 'Hanna11' !important;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -106,7 +114,12 @@ h2 {
   color: #222;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Hanna11' !important;
+}
+
 .explanation-card {
+    font-family: 'Hanna11' !important;
   font-size: 15px;
   padding: 16px;
   border-radius: 16px;
