@@ -1,7 +1,7 @@
 /*C:\Github\waferwatch\public\waferwatch_style.css*/
 body {
   background: #f0f0f3;
-  font-family: 'Hanna', sans-serif;
+  font-family: 'Hanna', sans-serif !important;
   color: #333;
   margin: 0;
   padding: 40px;
