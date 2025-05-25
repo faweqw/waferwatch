@@ -8,13 +8,29 @@ import Navbar from './components/Navbar';
 
 export default function App() {
   return (
-    <Router>
-      <div className="top-nav" style={{ padding: 20 }}>
-        <Navbar/>
-        <Routes>
-          <Route path="/" element={<ChartDashboard />} />
-          <Route path="/visual" element={<VisualDashboard />} />
-        </Routes>
+        <Router>
+      <div style={{ background: '#f1f1f4', minHeight: '100vh', fontFamily: 'sans-serif' }}>
+        {/* ✅ 상단 고정 내비게이션 바 */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          padding: '16px 0',
+          borderBottom: '1px solid #ddd',
+          position: 'sticky',
+          top: 0,
+          background: '#f1f1f4',
+          zIndex: 10
+        }}>
+          <Navbar />
+        </div>
+
+        {/* ✅ 아래 콘텐츠 영역 */}
+        <div style={{ padding: '24px' }}>
+          <Routes>
+            <Route path="/" element={<ChartDashboard />} />
+            <Route path="/visual" element={<VisualDashboard />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );
