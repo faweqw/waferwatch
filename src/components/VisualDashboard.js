@@ -115,9 +115,13 @@ export default function VisualDashboard() {
         width={800}
         height={400}
         style={{
-          background: '#fff',
-          borderRadius: '8px',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+        width: '100%',
+        maxWidth: '100%',
+        height: 'auto',
+        aspectRatio: '2 / 1', // width:height 비율
+        background: '#fff',
+        borderRadius: '8px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
         }}
       />
 
