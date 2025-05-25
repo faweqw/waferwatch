@@ -7,10 +7,7 @@ export default function App() {
   return (
     <Router>
       <div className="top-nav" style={{ padding: 20 }}>
-        <nav style={{ marginBottom: 20 }}>
-          <Link to="/" style={{ marginRight: 10 }}>📊 그래프 모드</Link>
-          <Link to="/visual">🧠 시각화 모드</Link>
-        </nav>
+        <Navbar/>
         <Routes>
           <Route path="/" element={<ChartDashboard />} />
           <Route path="/visual" element={<VisualDashboard />} />
