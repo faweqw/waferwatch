@@ -5,6 +5,10 @@ import Navbar from './components/Navbar';
 import ChartDashboard from './components/ChartDashboard';
 import VisualDashboard from './components/VisualDashboard';
 import VariableExplanation from './components/VariableExplanation';
+import EquipmentDataPage from './components/EquipmentDataPage';
+import SimulationAnalysisPage from './components/SimulationAnalysisPage'; // 상단에 추가
+
+
 
 export default function App() {
   return (
@@ -30,6 +34,8 @@ export default function App() {
             <Route path="/" element={<ChartDashboard />} />
             <Route path="/visual" element={<VisualDashboard />} />
             <Route path="/variables" element={<VariableExplanation />} />
+            <Route path="/data" element={<EquipmentDataPage />} /> 
+            <Route path="/simulation" element={<SimulationAnalysisPage />} />
           </Routes>
         </div>
       </div>

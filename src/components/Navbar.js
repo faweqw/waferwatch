@@ -19,8 +19,9 @@ export default function Navbar() {
       <Link to="/variables" style={navButtonStyle}>⭐ 변수 개념 설명</Link>
       <Link to="/" style={navButtonStyle}>📊 그래프 모드</Link>
       <Link to="/visual" style={navButtonStyle}>🧠 시각화 모드</Link>
-      <Link to="/" style={navButtonStyle}>⚙️ 설비 데이터 추가</Link>
-    
+      <Link to="/data" style={navButtonStyle}>⚙️ 설비 데이터 추가</Link>
+      <Link to="/simulation" style={navButtonStyle}>🖥️ 시뮬레이션 분석</Link>
+
     </div>
   );
 }
