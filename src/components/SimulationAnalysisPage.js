@@ -14,6 +14,7 @@ export default function SimulationAnalysisPage() {
   src="/images/14.jpg"
   alt="시뮬레이션 결과 이미지"
   style={{
+    maxWidth: '300px',      // 최대 너비 제한
     width: '100%',
     height: 'auto',
     margin: '24px 0',
@@ -37,6 +38,7 @@ export default function SimulationAnalysisPage() {
   src="/images/15.png"
   alt="시뮬레이션 결과 이미지"
   style={{
+    maxWidth: '300px',      // 최대 너비 제한
     width: '100%',
     height: 'auto',
     margin: '24px 0',
@@ -70,6 +72,7 @@ export default function SimulationAnalysisPage() {
   src="/images/11.png"
   alt="시뮬레이션 결과 이미지"
   style={{
+    maxWidth: '300px',      // 최대 너비 제한
     width: '100%',
     height: 'auto',
     margin: '24px 0',
@@ -131,6 +134,7 @@ plt.show()`}
   src="/images/17.png"
   alt="시뮬레이션 결과 이미지"
   style={{
+    maxWidth: '300px',      // 최대 너비 제한
     width: '100%',
     height: 'auto',
     margin: '24px 0',
@@ -150,6 +154,7 @@ plt.show()`}
   src="/images/12.png"
   alt="시뮬레이션 결과 이미지"
   style={{
+    maxWidth: '300px',      // 최대 너비 제한
     width: '100%',
     height: 'auto',
     margin: '24px 0',
@@ -169,6 +174,7 @@ plt.show()`}
   src="/images/13.png"
   alt="시뮬레이션 결과 이미지"
   style={{
+    maxWidth: '300px',      // 최대 너비 제한
     width: '100%',
     height: 'auto',
     margin: '24px 0',
@@ -291,6 +297,7 @@ plt.show()`}
   src="/images/16.png"
   alt="시뮬레이션 결과 이미지"
   style={{
+    maxWidth: '300px',      // 최대 너비 제한
     width: '100%',
     height: 'auto',
     margin: '24px 0',
