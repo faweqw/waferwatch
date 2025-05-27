@@ -1,5 +1,6 @@
 // src/components/SimulationAnalysisPage.js
 import React from 'react';
+import DigitalTwinLinks from './DigitalTwinLinks';
 
 export default function SimulationAnalysisPage() {
   return (
@@ -326,6 +327,20 @@ plt.show()`}
   최근 반도체 산업에서는 데이터 기반 장비 진단 및 공정 최적화가 전례 없이 중요한 과제로 부상하고 있다. 고난도 미세 공정과 대규모 생산 장비 간의 상호작용 속에서, 단순한 이상 탐지 수준을 넘어 <strong>예지 정비(Predictive Maintenance)</strong>, <strong>공정 편차 예측</strong>, <strong>실시간 제어 최적화</strong>로 분석의 영역이 확장되고 있다. 특히 전류, 진동, 온도 등의 센서 데이터를 활용한 시간-주파수 기반 진단 기법은 기존의 통계 기반 방법론보다 더 높은 민감도와 조기 반응성을 확보할 수 있다는 점에서 산업계와 학계 모두로부터 주목을 받고 있다.
 </p>
 
+{/* 반응형 이미지 삽입 */}
+<img
+  src="/images/18.png"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    maxWidth: '600px',      // 최대 너비 제한
+    width: '100%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   이러한 흐름은 <strong>디지털 트윈(Digital Twin)</strong>이라는 개념과 긴밀히 연결되어 있다. 디지털 트윈이란 물리적 설비의 동작을 가상 공간에서 실시간으로 복제·시뮬레이션하는 기술로, 데이터 기반의 상태 모니터링, 고장 진단, 수명 예측을 통합적으로 수행할 수 있는 차세대 제조 패러다임이다. 본 시뮬레이션 분석 역시 디지털 트윈의 핵심인 <em>현상 기반 고장 징후 예측</em> 기능을 직접 구현한 사례로 볼 수 있으며, 향후 실제 장비 데이터와 결합될 경우 완전한 트윈 모델로 진화할 수 있는 기반이 된다.
 </p>
@@ -333,6 +348,9 @@ plt.show()`}
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   결론적으로, 신호 기반 진단 모델은 단순 고장 인식 수준을 넘어서 반도체 장비의 전체 생애주기를 예측하고 최적화하는 기술의 핵심 축이 되어가고 있다. 특히 곡률 기반 지표와 리듬 분석은 고장을 사후에 식별하는 것이 아닌, 구조적 리듬 붕괴라는 형태로 사전에 징후를 감지할 수 있다는 점에서 디지털 트윈 시스템 내에서 매우 강력한 진단 도구로 기능할 수 있다. 이러한 접근은 향후 스마트 팩토리와 연결되는 진정한 <strong>지능형 반도체 제조 시스템</strong> 구현의 핵심 기술이 될 것이다.
 </p>
+
+<h4 style={{ marginTop: '32px', fontSize: '1.1rem' }}>📚 주요 기업별 디지털 트윈 적용 사례</h4>
+<DigitalTwinLinks />
 
 
     </div>
