@@ -90,6 +90,9 @@ export default function DigitalTwinLinks() {
         ))}
       </div>
 
+      <h3 style={{ marginTop: '56px', fontSize: '1.25rem' }}>🌎 관련 기사</h3>
+
+
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginTop: '48px' }}>
         {articles.map((article, index) => (
           <div key={index} style={{
