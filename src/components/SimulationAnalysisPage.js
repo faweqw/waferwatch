@@ -349,8 +349,6 @@ plt.show()`}
   결론적으로, 신호 기반 진단 모델은 단순 고장 인식 수준을 넘어서 반도체 장비의 전체 생애주기를 예측하고 최적화하는 기술의 핵심 축이 되어가고 있다. 특히 곡률 기반 지표와 리듬 분석은 고장을 사후에 식별하는 것이 아닌, 구조적 리듬 붕괴라는 형태로 사전에 징후를 감지할 수 있다는 점에서 디지털 트윈 시스템 내에서 매우 강력한 진단 도구로 기능할 수 있다. 이러한 접근은 향후 스마트 팩토리와 연결되는 진정한 <strong>지능형 반도체 제조 시스템</strong> 구현의 핵심 기술이 될 것이다.
 </p>
 
-<h4 style={{ marginTop: '32px', fontSize: '1.1rem' }}>📚 주요 기업별 디지털 트윈 적용 사례</h4>
-
 <h2 style={{ marginTop: '48px', fontSize: '1.5rem', fontWeight: 'bold' }}>🔬 개념의 직관적 해설과 정당성</h2>
 
 <p style={{ marginTop: '24px', lineHeight: '1.8' }}>
@@ -530,6 +528,22 @@ plt.show()`}
 
 <h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>🧲 강성(k): 리듬 복원의 힘</h4>
 
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  강성이 점진적으로 저하되면, 진동 에너지가 빠르게 복원되지 못하고 시스템에 <strong>잔류 진동</strong>으로 남게 됩니다.
+  이로 인해 리듬이 <strong>늘어지거나 지연되며</strong>, 신호에서 <strong>정상 주기성의 붕괴</strong>가 발생합니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  특히 볼트 풀림, 프레임 피로, 고정 구조물의 변형은 강성의 지역적 불균형을 초래하며,
+  이는 시스템이 <strong>비정상적인 모드에서 진동</strong>하게 만들고, 구조 리듬이 다중 주기로 분열됩니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  이러한 강성 기반 리듬 붕괴는 <strong>SRE 곡률의 기준선 변동</strong>이나 <strong>고차 공진의 출현</strong>으로 탐지되며,
+  점진적인 재료 열화 및 구조적 피로의 선행 징후로 기능할 수 있습니다.
+</p>
+
+
 <h4 style={{ marginTop: '48px', fontSize: '1.2rem', color: '#333' }}>📉 SRE 기준선 이동과 리듬 붕괴 탐지</h4>
 
 <p style={{ marginTop: '16px', lineHeight: '1.8' }}>
@@ -636,6 +650,24 @@ plt.show()`}
   요약하면, 감쇠 계수 c는 단순한 에너지 소실의 역할을 넘어, <strong>시스템의 리듬 구조를 불안정하게 만들고, 고장 전이 과정을 촉진</strong>하는 결정적 인자로 기능합니다.
   이 감쇠의 변동성은 NSI를 통해 수치화되며, 실시간 리듬 감시 시스템에 적용 시 매우 유효한 경보 트리거로 활용될 수 있습니다.
 </p>
+
+<h3 style={{ marginTop: '64px', fontSize: '1.25rem' }}>📚 주요 기업별 디지털 트윈 적용 사례</h3>
+
+<p style={{ marginTop: '24px', lineHeight: '1.8' }}>
+  회전체 기반 설비의 리듬 분석은 실제 산업 현장에서 <strong>디지털 트윈</strong> 기반 예지보전 시스템과 밀접한 관련이 있습니다.
+  주요 반도체 및 정밀 제조 기업들은 이미 고장 전이 징후를 실시간으로 탐지하고, 이를 통해 <strong>PM(Preventive Maintenance)</strong> 정책을 고도화하고 있습니다.
+</p>
+
+<ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+  <li><strong>SK하이닉스</strong>: 진공펌프의 전류 신호 리듬 분석을 통해 윤활 이슈 및 마모를 예측. NSI 지표를 기반으로 한 수명 추정 시스템을 개발 중.</li>
+  <li><strong>삼성전자</strong>: 웨이퍼 핸들링 암의 구조 리듬을 실시간 모니터링하여 반복 오차 발생 전 단계에서 유지보수 시행.</li>
+  <li><strong>Lam Research</strong>: 감쇠 기반 피로 누적 모델을 통해 Dry Pump 및 배기 시스템의 동적 안정성 분석.</li>
+</ul>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  이러한 적용 사례는 <strong>리듬 붕괴 탐지 기술의 실무적 가치를 강화</strong>하며, 본 연구의 지표 설계(NSI, SRE 등)가 산업 현장에서 얼마나 유효한지에 대한 간접적 근거가 됩니다.
+</p>
+
 
 
 <DigitalTwinLinks />
