@@ -395,6 +395,87 @@ plt.show()`}
   이 세 가지 지표는 공통적으로, 전류 신호를 단순한 센서 데이터로 보지 않고, <strong>구조적 운동 상태의 투영물로 해석</strong>한다는 점에서 기존의 평균값 기반 진단 지표(RMS, Peak, Crest Factor 등)와 차별화됩니다. 이는 구조역학, 시스템 진동, 그리고 신호처리의 접점에서 <strong>현상 기반 고장 조기 감지에 대한 물리적 타당성</strong>을 부여하는 핵심입니다.
 </p>
 
+<h3 style={{ marginTop: '48px', fontSize: '1.25rem' }}>🧱 회전체 리듬 붕괴의 물리 기반: 질량–감쇠–강성(M–C–K) 모델 해석</h3>
+
+<p style={{ marginTop: '24px', lineHeight: '1.8' }}>
+  대부분의 회전체 시스템은 진동학적으로 <strong>질량(m)</strong>, <strong>감쇠(c)</strong>, <strong>강성(k)</strong> 요소로 구성된 <strong>2차 선형 시스템</strong>으로 이상화할 수 있습니다.
+  이는 단순한 수학 모델이 아니라, 실제 물리적 구조물이 <em>어떻게 에너지를 저장하고, 분산시키며, 복원하는지</em>를 설명하는 동역학적 원리를 반영한 것입니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  이 세 요소는 다음과 같이 해석됩니다:
+  <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+    <li><strong>m (질량)</strong>: 관성, 즉 구조가 가속도에 저항하는 성질</li>
+    <li><strong>c (감쇠)</strong>: 마찰이나 저항에 의한 에너지 소실</li>
+    <li><strong>k (강성)</strong>: 구조가 변형 후 원래 형태로 복원하려는 성질</li>
+  </ul>
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  먼저 <strong>질량 m</strong>은 회전체의 중심에 있는 로터, 샤프트, 연결된 부품 등 전체 구조의 물리적 ‘무게’에 해당하며, 시스템의 응답 속도를 결정하는 핵심 요소입니다.
+  질량이 클수록 같은 힘에 대해 반응 속도가 느려지고, 진동 주기가 길어집니다. 하지만 여기서 중요한 점은 <strong>질량 자체보다 질량이 실제로 ‘어디에 분포되어 있는가’</strong>입니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  회전체에서 질량이 비대칭적으로 분포하거나, 시간이 지나면서 중심축이 틀어지는 경우, <strong>무게 중심이 이동</strong>하게 되고 이는 불균형한 회전 운동을 유발합니다.
+  이로 인해 일정한 리듬을 유지하던 시스템은 <strong>중첩된 고차 진동</strong>을 겪게 되며, 주파수 대역에서 <strong>고조파 발생 및 위상 뒤틀림</strong> 현상이 발생합니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  이러한 ‘질량 기반 리듬 붕괴’는 초기에는 매우 미세하지만, 반복 회전 시점마다 주기적으로 강해지며 결국에는 <strong>주요 고유 진동수의 교란</strong>으로 이어집니다.
+  SRE와 같은 곡률 기반 지표는 이러한 주기성 변화의 복잡도를 민감하게 감지할 수 있으며, 기존 RMS나 peak detection보다 조기에 이상 징후를 포착할 수 있습니다.
+</p>
+
+<p style={{ marginTop: '24px', lineHeight: '1.8' }}>
+  다음으로 살펴볼 요소는 <strong>감쇠 계수 c</strong>입니다. 감쇠는 구조가 진동할 때 에너지를 외부로 소실시키는 현상으로, 주로 <strong>베어링 마찰, 축 접촉면 저항, 윤활 상태 저하</strong> 등에서 발생합니다.
+  초기에는 이 감쇠가 안정적인 <strong>선형 감쇠</strong> 형태를 가지지만, 고장이 진행되면 <strong>비선형 감쇠</strong>로 변화하며, 시스템은 예측 불가능한 진동 응답을 보이게 됩니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  예를 들어, 베어링에 윤활유가 부족하거나 이물질이 들어갈 경우, 감쇠력은 속도에 비례하지 않고 <strong>특정 구간에서만 급격히 증가</strong>하는 불규칙한 형태를 띱니다.
+  이는 시스템이 특정 속도 또는 위상에서만 진동 에너지를 과도하게 흡수하거나 반사하게 만들어, 신호 상에서 <strong>불규칙한 진폭 변화 및 위상 지연</strong>을 유발합니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  또한 시간이 지나며 축 내부 마모가 발생하면, 감쇠는 단순 저항의 의미를 넘어서 구조 진동의 모드를 교란시키는 요인이 됩니다.
+  이런 현상은 <strong>특정 주파수에서만 반응이 커지는 준공진(sub-resonance)</strong> 형태로 나타나며, 정상 리듬의 일정한 주기성에 불규칙한 고주파 패턴이 섞이게 됩니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  감쇠 계수의 이러한 변화는 전류 신호의 <strong>잡음 밀도 증가(Spectral Entropy 상승)</strong>나 <strong>진동 패턴의 비주기화</strong>로 관찰됩니다.
+  본 논문에서는 이러한 현상을 정량화하기 위해 <strong>NSI (Noise Stability Index)</strong> 지표를 도입하여, 비선형 감쇠의 전이 현상을 포착하였습니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  NSI는 일정 구간 내 신호의 노이즈 안정도를 측정함으로써, 감쇠 계수 변화에 따른 <strong>구조의 에너지 전달 안정성</strong>을 평가할 수 있습니다.
+  고장이 임박할수록 감쇠는 불안정해지고, NSI는 급격한 진폭 변동성과 위상 이탈을 반영하며, 조기 이상 감지에 기여합니다.
+</p>
+
+<p style={{ marginTop: '24px', lineHeight: '1.8' }}>
+  다음으로 살펴볼 요소는 <strong>감쇠 계수 c</strong>입니다. 감쇠는 구조가 진동할 때 에너지를 외부로 소실시키는 현상으로, 주로 <strong>베어링 마찰, 축 접촉면 저항, 윤활 상태 저하</strong> 등에서 발생합니다.
+  초기에는 이 감쇠가 안정적인 <strong>선형 감쇠</strong> 형태를 가지지만, 고장이 진행되면 <strong>비선형 감쇠</strong>로 변화하며, 시스템은 예측 불가능한 진동 응답을 보이게 됩니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  예를 들어, 베어링에 윤활유가 부족하거나 이물질이 들어갈 경우, 감쇠력은 속도에 비례하지 않고 <strong>특정 구간에서만 급격히 증가</strong>하는 불규칙한 형태를 띱니다.
+  이는 시스템이 특정 속도 또는 위상에서만 진동 에너지를 과도하게 흡수하거나 반사하게 만들어, 신호 상에서 <strong>불규칙한 진폭 변화 및 위상 지연</strong>을 유발합니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  또한 시간이 지나며 축 내부 마모가 발생하면, 감쇠는 단순 저항의 의미를 넘어서 구조 진동의 모드를 교란시키는 요인이 됩니다.
+  이런 현상은 <strong>특정 주파수에서만 반응이 커지는 준공진(sub-resonance)</strong> 형태로 나타나며, 정상 리듬의 일정한 주기성에 불규칙한 고주파 패턴이 섞이게 됩니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  감쇠 계수의 이러한 변화는 전류 신호의 <strong>잡음 밀도 증가(Spectral Entropy 상승)</strong>나 <strong>진동 패턴의 비주기화</strong>로 관찰됩니다.
+  본 논문에서는 이러한 현상을 정량화하기 위해 <strong>NSI (Noise Stability Index)</strong> 지표를 도입하여, 비선형 감쇠의 전이 현상을 포착하였습니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  NSI는 일정 구간 내 신호의 노이즈 안정도를 측정함으로써, 감쇠 계수 변화에 따른 <strong>구조의 에너지 전달 안정성</strong>을 평가할 수 있습니다.
+  고장이 임박할수록 감쇠는 불안정해지고, NSI는 급격한 진폭 변동성과 위상 이탈을 반영하며, 조기 이상 감지에 기여합니다.
+</p>
+
 
 <DigitalTwinLinks />
 
