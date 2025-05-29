@@ -25,7 +25,7 @@ export default function SimulationAnalysisPage() {
   <a href="#twin-cases" style={tocStyle}>📚 디지털 트윈 사례</a>
 </div>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', margin: '16px 0' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '16px', marginBottom: '0px' }}>
   <a href="#code" style={tocStyle}>📎 코드 전문</a>
   <a href="#scenario" style={tocStyle}>🟢 고장 시나리오</a>
   <a href="#multi-indices" style={tocStyle}>📊 다중 지표 분석</a>
