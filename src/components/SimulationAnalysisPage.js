@@ -3,9 +3,48 @@ import React from 'react';
 import DigitalTwinLinks from './DigitalTwinLinks';
 
 export default function SimulationAnalysisPage() {
+
+  const tocStyle = {
+    textDecoration: 'none',
+    background: '#f5f5f5',
+    padding: '8px 12px',
+    borderRadius: '8px',
+    fontSize: '0.95rem',
+    color: '#333',
+    fontWeight: 'bold',
+    boxShadow: '2px 2px 4px #ccc',
+    transition: 'background 0.3s',
+  };
+
   return (
     <div style={{ padding: '24px', fontFamily: 'Hanna11, sans-serif' }}>
       <h2 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>🖥️ 시뮬레이션 분석</h2>
+
+
+  {/* ✅ 목차 카드 삽입 위치 */}
+  <div style={{
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '12px',
+    padding: '16px 0',
+    borderBottom: '1px solid #ccc',
+    marginBottom: '24px'
+  }}>
+    <a href="#intuitive" style={tocStyle}>😮 개념 해설</a>
+    <a href="#physical" style={tocStyle}>💪 물리 정당화</a>
+    <a href="#design" style={tocStyle}>🧪 실험 설계</a>
+    <a href="#sre-nsi" style={tocStyle}>📊 SRE vs NSI</a>
+    <a href="#why-rhythm" style={tocStyle}>🧠 회전체 리듬</a>
+    <a href="#mass" style={tocStyle}>⚖️ 질량(m)</a>
+    <a href="#damping" style={tocStyle}>🛢️ 감쇠(c)</a>
+    <a href="#nonlinear" style={tocStyle}>📡 고주파 교란</a>
+    <a href="#stiffness" style={tocStyle}>🧲 강성(k)</a>
+    <a href="#sre-shift" style={tocStyle}>📉 기준선 이동</a>
+    <a href="#nsi" style={tocStyle}>📈 NSI 지표</a>
+    <a href="#integration" style={tocStyle}>🧩 통합 해석</a>
+  </div>
+
+
       <p style={{ color: '#555' }}>
         이 페이지는 고장 진단, 주파수 리듬, 고장 전이 분석 등 시뮬레이션 기반 실험 결과를 시각화하거나 해석하는 공간입니다.
       </p>
@@ -18,31 +57,9 @@ export default function SimulationAnalysisPage() {
   borderBottom: '1px solid #ccc',
   marginBottom: '24px'
 }}>
-  <a href="#concept-intuition" style={tocStyle}>😮 개념 직관</a>
-  <a href="#concept-physics" style={tocStyle}>💪 물리 정당화</a>
-  <a href="#experiment-design" style={tocStyle}>🧪 실험 설계</a>
-  <a href="#sre-nsi-complement" style={tocStyle}>📊 SRE/NSI 상보성</a>
-  <a href="#why-rhythm" style={tocStyle}>🧠 리듬의 원인</a>
-  <a href="#mass" style={tocStyle}>⚖️ 질량</a>
-  <a href="#damping" style={tocStyle}>🛢️ 감쇠</a>
-  <a href="#nonlinear-damping" style={tocStyle}>📡 비선형 감쇠</a>
-  <a href="#stiffness" style={tocStyle}>🧲 강성</a>
-  <a href="#sre-shift" style={tocStyle}>📉 SRE 이동</a>
-  <a href="#nsi" style={tocStyle}>📈 NSI 지표</a>
-  <a href="#integration" style={tocStyle}>🧩 통합 해석</a>
+
 </div>
 
-const tocStyle = {
-  textDecoration: 'none',
-  background: '#f5f5f5',
-  padding: '8px 12px',
-  borderRadius: '8px',
-  fontSize: '0.95rem',
-  color: '#333',
-  fontWeight: 'bold',
-  boxShadow: '2px 2px 4px #ccc',
-  transition: 'background 0.3s',
-};
 
 
 {/* 반응형 이미지 삽입 */}
@@ -58,6 +75,8 @@ const tocStyle = {
     boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
   }}
 />
+
+
 
 
       <p style={{ marginTop: '24px', lineHeight: '1.8' }}>
