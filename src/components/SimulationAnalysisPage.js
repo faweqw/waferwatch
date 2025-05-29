@@ -20,6 +20,16 @@ export default function SimulationAnalysisPage() {
     <div style={{ padding: '24px', fontFamily: 'Hanna11, sans-serif' }}>
       <h2 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>🖥️ 시뮬레이션 분석</h2>
 
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', margin: '16px 0' }}>
+  <a href="#code" style={tocStyle}>📎 코드 전문</a>
+  <a href="#scenario" style={tocStyle}>🟢 고장 시나리오</a>
+  <a href="#multi-indices" style={tocStyle}>📊 다중 지표 분석</a>
+  <a href="#sre-focus" style={tocStyle}>🔵 SRE 경고 시점</a>
+  <a href="#limitation" style={tocStyle}>🧪 분석의 한계</a>
+  <a href="#twin" style={tocStyle}>💡 디지털 트윈</a>
+  <a href="#mck" style={tocStyle}>🧱 M–C–K 모델</a>
+</div>
+
 
   {/* ✅ 목차 카드 삽입 위치 */}
   <div style={{
@@ -102,7 +112,7 @@ export default function SimulationAnalysisPage() {
 />
 
 
-<h3 style={{ marginTop: '24px', fontWeight: 'bold' }}>📎 전체 시뮬레이션 및 분석 코드 전문</h3>
+<h3 id="code" style={{ marginTop: '24px', fontWeight: 'bold' }}>📎 전체 시뮬레이션 및 분석 코드 전문</h3>
 <p style={{ lineHeight: '1.8' }}>
   아래 코드는 고장 리듬 시뮬레이션 생성부터 SRE/NSI 분석, 임계값 산출 및 시각화까지의 전 과정을 포함한 Python 기반 시뮬레이션 코드이다. 각 구간에 대해 리듬/노이즈 특성을 현실적으로 조합하였고, 분석 파트에서는 percentile 기반의 robust threshold를 도입해 통계적 신뢰도를 강화하였다.
 </p>
@@ -115,7 +125,7 @@ export default function SimulationAnalysisPage() {
 # - 결과: 고장 전 5초 내 반응 확인 (SRE, NSI 민감도 우수)`}
 </pre>
 
-<h3 style={{ marginTop: '48px', fontSize: '1.25rem' }}>🟢 리듬 기반 고장 시나리오 구조화</h3>
+<h3 id="scenario" style={{ marginTop: '48px', fontSize: '1.25rem' }}>🟢 리듬 기반 고장 시나리오 구조화</h3>
 <p style={{ marginTop: '24px', lineHeight: '1.8' }}>
   아래 첫 번째 이미지는 전체 시뮬레이션 신호의 시간 영역 파형으로, 각 구간의 특징(정상, 전이, 고장)을 시각적으로 확인할 수 있다. 녹색 영역은 정상 구간을, 주황색은 전이 구간, 붉은색은 고장 구간을 나타내며, 시간에 따른 리듬 변화가 명확히 구분된다.
 </p>
@@ -197,7 +207,7 @@ plt.show()`}
   }}
 />
 
-<h3 style={{ marginTop: '48px', fontSize: '1.25rem' }}>📊 다중 지표 기반 고장 반응 분석</h3>
+<h3 id="multi-indices" style={{ marginTop: '48px', fontSize: '1.25rem' }}>📊 다중 지표 기반 고장 반응 분석</h3>
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   두 번째 이미지는 세 가지 지표(SRE, NSI, Periodicity)의 Z-score 변화와 각각의 임계값을 함께 시각화한 그래프이다. 고장 발생 시점인 90초를 기준으로, SRE와 NSI는 약 85초부터 급격히 반응을 보이며, Periodicity는 점진적으로 감소해 고장 이후 가장 낮은 값을 기록한다. 이는 각각 리듬 붕괴, 불안정성 증가, 반복성 손실이라는 서로 다른 해석 관점에서 고장을 설명함을 보여준다.
 </p>
@@ -217,7 +227,7 @@ plt.show()`}
   }}
 />
 
-<h3 style={{ marginTop: '48px', fontSize: '1.25rem' }}>🔵 SRE 단독 반응 강조 및 경고 시점 시각화</h3>
+<h3 id="sre-focus" style={{ marginTop: '48px', fontSize: '1.25rem' }}>🔵 SRE 단독 반응 강조 및 경고 시점 시각화</h3>
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   마지막 세 번째 이미지는 SRE 단독 지표에 대한 반응 영역만을 강조하여 시각화한 것이다. Threshold(임계값)를 초과하는 시점 이후부터 파란 음영으로 표시된 구간은 SRE가 구조 리듬의 붕괴를 감지하여 경고 반응을 나타낸 시점이며, 실제 고장 발생보다 수 초 앞선 선행 반응 특성을 가진다. 이는 구조 리듬 기반 지표가 조기 탐지에 효과적임을 보여준다.
 </p>
@@ -360,7 +370,7 @@ plt.show()`}
   }}
 />
 
-<h3 style={{ marginTop: '48px', fontSize: '1.25rem' }}>🧪 분석의 한계와 향후 개선 방향</h3>
+<h3 id="limitation" style={{ marginTop: '48px', fontSize: '1.25rem' }}>🧪 분석의 한계와 향후 개선 방향</h3>
 
 
 <p style={{ marginTop: '24px', lineHeight: '1.8' }}>
@@ -373,7 +383,7 @@ plt.show()`}
   마지막으로, 지표가 임계값을 초과한 이후의 반응 시점을 자동으로 고장 경보로 변환하거나 시점 예측을 수행하는 기능은 구현되어 있지 않다. 후속 연구에서는 GPI(Global Phase Inflection), CUSUM, EWMA 등 고장 경보 및 시점 추정 알고리즘을 연계하여 실시간 조기 진단 시스템 형태로 확장해야 한다.
 </p>
 
-<h3 style={{ marginTop: '48px', fontSize: '1.25rem' }}>💡 반도체 산업의 데이터 흐름과 디지털 트윈 기술</h3>
+<h3 id="twin" style={{ marginTop: '48px', fontSize: '1.25rem' }}>💡 반도체 산업의 데이터 흐름과 디지털 트윈 기술</h3>
 
 
 <p style={{ marginTop: '36px', lineHeight: '1.8' }}>
@@ -502,7 +512,7 @@ plt.show()`}
 
 
 
-<h3 style={{ marginTop: '48px', fontSize: '1.25rem' }}>🧱 회전체 리듬 붕괴의 물리 기반: 질량–감쇠–강성(M–C–K) 모델 해석</h3>
+<h3 id="mck" style={{ marginTop: '48px', fontSize: '1.25rem' }}>🧱 회전체 리듬 붕괴의 물리 기반: 질량–감쇠–강성(M–C–K) 모델 해석</h3>
 
 <h4 id="why-rhythm" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>🧠 회전체는 왜 리듬을 가지는가?</h4>
 
