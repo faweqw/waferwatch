@@ -395,9 +395,70 @@ plt.show()`}
   이 세 가지 지표는 공통적으로, 전류 신호를 단순한 센서 데이터로 보지 않고, <strong>구조적 운동 상태의 투영물로 해석</strong>한다는 점에서 기존의 평균값 기반 진단 지표(RMS, Peak, Crest Factor 등)와 차별화됩니다. 이는 구조역학, 시스템 진동, 그리고 신호처리의 접점에서 <strong>현상 기반 고장 조기 감지에 대한 물리적 타당성</strong>을 부여하는 핵심입니다.
 </p>
 
+<h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>🧪 실험 신호 리듬 구조의 설계 원리</h4>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  본 실험에 사용된 전류 신호는 총 120초간 수집되며, <strong>정상–전이–고장</strong>의 3단계로 구성됩니다.
+  이 구성은 실제 회전체 설비에서 관찰되는 <strong>리듬 붕괴 전이 과정</strong>을 정량화하기 위한 것입니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  <strong>정상 구간(0~60초)</strong>은 8Hz의 일정한 리듬, 낮은 노이즈 플로어, 선형 감쇠 조건을 모사합니다.
+  이는 구조적 이상이 없고, 리듬이 <strong>자기복원적</strong>으로 유지되는 상태를 반영합니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  <strong>전이 구간(60~90초)</strong>에서는 고차 주파수 성분과 저주파 위상 변화가 삽입되어,
+  실제 설비에서 <strong>편심, 윤활 저하, 베어링 미세 파손</strong> 등이 발생하는 조건을 반영합니다.
+  이 시점에서 SRE, NSI 등의 지표는 기준선을 이탈하기 시작합니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  <strong>고장 구간(90~120초)</strong>은 비정상 고주파, 큰 진폭의 노이즈 삽입을 통해 <strong>구조 리듬의 붕괴</strong>를 모델링합니다.
+  실제 설비에서는 이 단계에서 고유 진동수가 완전히 무너지고, 리듬은 예측 불가능한 상태로 진입합니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  이와 같은 3단계 구조는 <strong>물리적 고장 메커니즘의 시간적 이행</strong>을 모델링한 것으로,
+  단순한 노이즈 주입 시뮬레이션이 아닌, <strong>에너지 전달–복원력–감쇠 특성의 변화</strong>를 반영한 설계입니다.
+</p>
+
+<h4 style={{ marginTop: '48px', fontSize: '1.1rem', color: '#333' }}>📊 SRE와 NSI: 두 리듬 지표의 상보성</h4>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  <strong>SRE(Structural Rhythm Entropy)</strong>는 신호의 <em>위상–주기–곡률</em> 구조가 얼마나 정형적으로 유지되는지를 분석하여,
+  회전체의 <strong>리듬 구조 붕괴</strong>를 탐지하는 데 특화되어 있습니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  반면 <strong>NSI(Noise Stability Index)</strong>는 진폭과 고주파 성분의 <strong>에너지 기반 불안정성</strong>을 측정하여,
+  감쇠 계수의 비선형 변화 및 고장 전이 과정을 정량화합니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  두 지표는 각각 <strong>구조적 리듬 변화(SRE)</strong>와 <strong>에너지 흐름의 혼란(NSI)</strong>을 정밀하게 추적함으로써,
+  서로 다른 관점에서 동일한 고장 전이를 포착할 수 있는 <strong>상보적 진단 체계</strong>를 구성합니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  실험 결과에서도 고장이 발생하기 수 초 전, <strong>NSI가 먼저 반응하고 SRE가 구조 왜곡을 뒤따라 포착</strong>하는 경향이 확인되었으며,
+  이는 <strong>선행 감쇠 변화 → 구조 붕괴의 연쇄적 메커니즘</strong>을 잘 반영합니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  따라서 SRE와 NSI를 함께 사용하는 것은 단일 지표로는 포착할 수 없는 <strong>리듬 붕괴의 전 과정</strong>을 종합적으로 감지하고 해석하는 데 매우 효과적입니다.
+</p>
+
+
+
 <h3 style={{ marginTop: '48px', fontSize: '1.25rem' }}>🧱 회전체 리듬 붕괴의 물리 기반: 질량–감쇠–강성(M–C–K) 모델 해석</h3>
 
 <h4 style={{ marginTop: '24px', fontSize: '1.1rem', color: '#333' }}>🧠 회전체는 왜 리듬을 가지는가?</h4>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  여기서 <strong>‘리듬’</strong>이란, 회전체가 외력 없이 스스로 유지하는 <strong>고유 주기적 운동 패턴</strong>을 뜻합니다. 
+  이는 외란이 없을 때 시스템이 자발적으로 진동하는 <em>고유 진동수 및 위상 구조</em>에 의해 결정되며, 시간적으로 반복되는 <strong>에너지 교환의 구조</strong>라고 볼 수 있습니다.
+</p>
 
 <p style={{ marginTop: '24px', lineHeight: '1.8' }}>
   회전체 시스템은 동역학적으로 <strong>질량(m)</strong>, <strong>감쇠(c)</strong>, <strong>강성(k)</strong>의 세 가지 구성 요소로 이루어진 <strong>2차 선형 시스템</strong>으로 이상화할 수 있습니다.
@@ -421,14 +482,16 @@ plt.show()`}
 </p>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
-  예를 들어, 구조 중심이 이동하거나 로터에 편심이 생기면 무게중심이 틀어지고, 이로 인해 <strong>불균형 회전</strong>이 발생합니다.
-  이 과정에서 기존의 안정된 회전 주기는 <strong>고차 진동 성분</strong>으로 왜곡되며, 위상 및 주파수 리듬이 흔들립니다.
+회전체에서 질량 분포가 비대칭이거나 회전 중심이 틀어진 경우, <strong>동적 불균형(dynamic imbalance)</strong>이 발생합니다.
+이때 시스템은 각 회전 주기마다 변동하는 원심력에 의해 <strong>불규칙한 힘과 모멘트</strong>를 받게 되고, 그 결과로 <strong>고차 진동수 성분 및 위상 변화</strong>가 리듬에 삽입됩니다.
 </p>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
-  이러한 질량 기반 리듬 이상은 초기에는 미세하지만, 반복 회전 중 누적되며 결국 <strong>고유 진동수의 변동</strong>과 리듬 붕괴로 연결됩니다.
-  이 때 <strong>SRE(Structural Rhythm Entropy)</strong> 지표는 진동의 구조적 복잡성과 주기성 왜곡을 정량화하여 조기 경보 기능을 수행합니다.
+  이러한 질량 분포 기반의 리듬 이상은 회전 운동 중 점차 누적되며, 결국 <strong>구조적 주기성의 교란</strong>과 <strong>고유 진동수의 변화</strong>를 야기합니다.
+  이 과정에서 <strong>SRE(Structural Rhythm Entropy)</strong>는 신호의 <em>리듬 곡률 구조가 시간에 따라 얼마나 비정형적으로 변형되는지</em>를 수치화함으로써,
+  <strong>초기 단계의 리듬 붕괴를 조기에 탐지</strong>할 수 있게 합니다.
 </p>
+
 
 <h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>🛢️ 감쇠(c): 진동 에너지의 소멸과 혼란</h4>
 
@@ -442,12 +505,24 @@ plt.show()`}
   이로 인해 특정 속도나 위상에서만 과도한 감쇠가 일어나며, <strong>위상 지연과 진폭 불안정</strong>이 함께 나타납니다.
 </p>
 
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  또한 시간이 지나며 축 내부 마모가 발생하면, 감쇠는 단순 저항의 의미를 넘어서 구조 진동의 모드를 교란시키는 요인이 됩니다.
+  이런 현상은 <strong>특정 주파수에서만 반응이 커지는 준공진(sub-resonance)</strong> 형태로 나타나며, 정상 리듬의 일정한 주기성에 불규칙한 고주파 패턴이 섞이게 됩니다.
+</p>
+
+
 <h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>📡 비선형 감쇠와 고주파 리듬 교란</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
-  예를 들어, 베어링 표면의 미세 손상은 일정 조건에서 <strong>부분 공진(partial resonance)</strong>을 유도하며, 정상 리듬 신호의 주기적 구조가 깨지고
+  예를 들어, 베어링 표면의 미세 손상은 일정 조건에서 <strong>비선형 모드 간섭(nonlinear mode interference)</strong>을 유도하며, 정상 리듬 신호의 주기적 구조가 깨지고
   불규칙한 <strong>고주파 진동</strong>이 삽입됩니다. 이때 발생하는 리듬 왜곡은 구조 전체에 전파되며, 국소 고장을 전체 고장으로 증폭시킵니다.
 </p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  이는 고유 진동 모드 간 에너지가 비선형적으로 전이되며, 특정 주파수 대역에서 공진 아닌 <strong>간섭 기반 진폭 증폭</strong>이 발생하는 현상입니다.
+  단일 공진과 달리 이 간섭은 리듬의 <strong>위상 안정성까지 파괴</strong>하며, 구조 고장의 전조로 나타납니다.
+</p>
+
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   감쇠의 변화는 전류 신호의 <strong>진폭 변동성 증가</strong>, <strong>비주기적 패턴 삽입</strong>으로 나타나며, 이로 인해 시스템은 더 이상 예측 가능한 리듬을 유지할 수 없게 됩니다.
@@ -455,15 +530,41 @@ plt.show()`}
 
 <h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>🧲 강성(k): 리듬 복원의 힘</h4>
 
+<h4 style={{ marginTop: '48px', fontSize: '1.2rem', color: '#333' }}>📉 SRE 기준선 이동과 리듬 붕괴 탐지</h4>
+
+<p style={{ marginTop: '16px', lineHeight: '1.8' }}>
+  <strong>SRE(Structural Rhythm Entropy)</strong>는 리듬 곡률의 불안정성을 기반으로 하기 때문에, 
+  <strong>시간 축에 따라 변동하는 SRE 곡선</strong>은 <em>시스템이 언제부터 비정상 리듬으로 이행했는지</em>를 선명히 보여줍니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  정상 상태에서는 SRE 값이 낮고 일정한 기준선 주변에서 <strong>작은 파동</strong>을 유지합니다.
+  그러나 고장의 징후가 시작되면 곡률 구조가 복잡해지며, SRE 값은 <strong>기준선을 천천히 이탈</strong>하거나, 
+  <strong>갑작스럽게 급등</strong>하는 패턴을 보입니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  특히 <strong>전이 구간</strong>에서는 기준선 위에서의 <em>미세한 오버슈트</em>가 반복적으로 발생하며, 
+  이는 구조 리듬이 붕괴되기 직전의 예열기(precursor phase)에 해당합니다.
+</p>
+
+<p style={{ marginTop: '12px', lineHeight: '1.8' }}>
+  <strong>고장 직전 5~10초 구간</strong>에서는 SRE의 분산(variance)과 평균이 동시에 상승하며,
+  <strong>리듬 붕괴의 비가역성</strong>을 반영합니다.  
+  이 변화는 RMS나 PSD 기반 분석보다 조기이며, <em>곡률의 불연속성이 시작되는 지점</em>을 직접적으로 반영합니다.
+</p>
+
+
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   <strong>강성 k</strong>는 구조가 변형된 후 다시 본래 위치로 돌아가려는 복원력의 크기를 나타냅니다.
   회전체 시스템에서 이 값은 <strong>축의 재료 탄성, 고정 구조물의 응력 분포, 연결 부위의 견고성</strong> 등에 의해 결정됩니다.
 </p>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
-  강성이 높으면 변형 후 빠르게 원위치로 복귀하며 <strong>리듬 주기의 일관성</strong>이 유지됩니다.
-  반면 강성이 약하거나 비균질할 경우, 진동 응답이 <strong>장기적으로 드리프트하거나 복잡한 공진</strong>을 유발할 수 있습니다.
+  강성이 충분히 확보된 구조는 외력에 의해 순간적으로 변형되더라도, 주기적인 회전 운동 중 빠르게 원래 위치로 되돌아옵니다. 
+  이로 인해 <strong>리듬의 주기성과 위상 정합</strong>이 유지됩니다.
 </p>
+
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   특히 <strong>볼트 풀림, 연결부 피로, 소재 열화</strong> 등으로 인해 강성 변화가 발생하면,
@@ -476,12 +577,13 @@ plt.show()`}
 </p>
 
 
-<h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>📈 NSI: 잡음 안정성으로 리듬 붕괴를 감지하다</h4>
+<h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>📈 NSI: 잡음 안정성 기반 리듬 붕괴 보조 지표</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
-  본 논문에서는 이러한 <strong>비선형 감쇠 현상</strong>을 조기에 감지하기 위해 <strong>NSI(Noise Stability Index)</strong>를 도입했습니다.
-  NSI는 특정 시간 구간 내에서 신호의 잡음 안정성을 수치화함으로써, 리듬 붕괴의 초기 징후를 포착합니다.
+  본 논문에서는 <strong>리듬 붕괴의 신호 안정성 측면을 보완적으로 해석</strong>하기 위해 <strong>NSI(Noise Stability Index)</strong>를 함께 제안하였습니다.
+  NSI는 특정 시간 구간 내에서 신호의 잡음 안정성을 수치화함으로써, 구조 리듬의 위상·진폭 교란을 간접적으로 포착할 수 있는 지표입니다.
 </p>
+
 
 <p style={{ marginTop: '24px', lineHeight: '1.8' }}>
   <strong>NSI(Noise Stability Index)</strong>는 감쇠 계수의 변화가 신호에 미치는 영향을 정량화합니다.
@@ -501,7 +603,11 @@ plt.show()`}
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   실제 실험에서는 고장이 발생하기 <strong>수 초 전부터 NSI 값이 급격히 증가</strong>했으며, 이로 인해 감쇠 기반 리듬 이상을 조기에 탐지할 수 있었습니다.
-  이는 기존의 RMS, peak-to-peak 방식보다 <strong>선행성(pre-symptomatic detection)이 뛰어나다는 실험적 근거</strong>를 제공합니다.
+  특히 <strong>RMS 또는 peak-to-peak 기반 방식은 평균 진폭 또는 최대 진폭 중심의 후행 지표</strong>로, 이미 고장이 진행된 이후의 변화를 감지하는 데 적합합니다.
+반면, <strong>SRE와 NSI는 리듬 복잡도나 잡음 안정성의 미세한 변화</strong>를 선행적으로 포착할 수 있어, <strong>사전 증상(pre-symptom) 단계에서 경고</strong>를 제공합니다.
+
+
+
 </p>
 
 <h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>🧩 감쇠–리듬–지표의 통합 해석</h4>
@@ -509,12 +615,6 @@ plt.show()`}
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   요약하면, 감쇠 계수 c는 단순한 에너지 소실의 역할을 넘어, <strong>시스템의 리듬 구조를 불안정하게 만들고, 고장 전이 과정을 촉진</strong>하는 결정적 인자로 기능합니다.
   이 감쇠의 변동성은 NSI를 통해 수치화되며, 실시간 리듬 감시 시스템에 적용 시 매우 유효한 경보 트리거로 활용될 수 있습니다.
-</p>
-
-<p style={{ marginTop: '24px', lineHeight: '1.8' }}>
-  <strong>NSI(Noise Stability Index)</strong>는 감쇠 계수의 변화가 신호에 미치는 영향을 정량화합니다.
-  특히 회전체의 리듬이 안정적인 동안에는 NSI 값이 낮고 일정하게 유지되지만, <strong>윤활 손실, 열 팽창, 베어링 마모</strong> 등이 진행되면
-  노이즈 플로어(noise floor)의 분산이 커지면서 NSI가 급격히 상승하게 됩니다.
 </p>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
