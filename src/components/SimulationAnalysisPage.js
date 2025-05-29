@@ -49,7 +49,7 @@ export default function SimulationAnalysisPage() {
 />
 
 
-<h2 style={{ marginTop: '24px', fontWeight: 'bold' }}>📎 전체 시뮬레이션 및 분석 코드 전문</h2>
+<h3 style={{ marginTop: '24px', fontWeight: 'bold' }}>📎 전체 시뮬레이션 및 분석 코드 전문</h3>
 <p style={{ lineHeight: '1.8' }}>
   아래 코드는 고장 리듬 시뮬레이션 생성부터 SRE/NSI 분석, 임계값 산출 및 시각화까지의 전 과정을 포함한 Python 기반 시뮬레이션 코드이다. 각 구간에 대해 리듬/노이즈 특성을 현실적으로 조합하였고, 분석 파트에서는 percentile 기반의 robust threshold를 도입해 통계적 신뢰도를 강화하였다.
 </p>
@@ -349,7 +349,7 @@ plt.show()`}
   결론적으로, 신호 기반 진단 모델은 단순 고장 인식 수준을 넘어서 반도체 장비의 전체 생애주기를 예측하고 최적화하는 기술의 핵심 축이 되어가고 있다. 특히 곡률 기반 지표와 리듬 분석은 고장을 사후에 식별하는 것이 아닌, 구조적 리듬 붕괴라는 형태로 사전에 징후를 감지할 수 있다는 점에서 디지털 트윈 시스템 내에서 매우 강력한 진단 도구로 기능할 수 있다. 이러한 접근은 향후 스마트 팩토리와 연결되는 진정한 <strong>지능형 반도체 제조 시스템</strong> 구현의 핵심 기술이 될 것이다.
 </p>
 
-<h2 style={{ marginTop: '48px', fontSize: '1.5rem', fontWeight: 'bold' }}>🔬 개념의 직관적 해설과 정당성</h2>
+<h4 id="concept-intuition" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>😮 개념의 직관적 해설과 정당성</h4>
 
 <p style={{ marginTop: '24px', lineHeight: '1.8' }}>
   복잡한 공정 장비의 동작은 일정한 리듬과 반복을 따릅니다. 이 리듬은 마치 시계의 태엽처럼 고르게 움직이지만, 미세한 마찰, 누적된 하중, 구조 피로 등이 쌓이면 그 고른 리듬은 점차 흔들리기 시작합니다. 본 분석의 핵심은 <strong>그 ‘흔들림’을 수치화하고, 그 속에서 고장을 예측하는 것</strong>입니다.
@@ -371,7 +371,7 @@ plt.show()`}
   이처럼, SRE, NSI, Periodicity는 각각 구조 리듬의 <strong>변화량, 불안정성, 반복성 손실</strong>을 관찰하여, 고장이 오기 전의 미세한 징후를 <strong>리듬 기반으로 조기 감지</strong>합니다. 이는 기존의 에너지 기반, 진폭 기반 신호 분석보다 <strong>구조적 해석이라는 고차원적 관점</strong>에서 진단의 정확도와 민감도를 높일 수 있다는 점에서 의미가 있습니다.
 </p>
 
-<h2 style={{ marginTop: '48px', fontSize: '1.5rem', fontWeight: 'bold' }}>🔬 개념의 물리적 정당화</h2>
+<h4 id="concept-physics" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>💪 개념의 물리적 정당화</h4>
 
 <p style={{ marginTop: '24px', lineHeight: '1.8' }}>
   회전체 기반 설비는 일반적으로 모터의 일정한 토크, 베어링의 안정된 마찰 조건, 하중 균형을 기반으로 ‘주기적 진동’ 혹은 ‘전류 리듬’을 생성합니다. 이때 센서가 수집하는 전류 신호는 단지 전기 신호가 아니라, <strong>회전 운동의 구조적 상태를 반영하는 물리적 결과물</strong>입니다.
@@ -393,7 +393,7 @@ plt.show()`}
   이 세 가지 지표는 공통적으로, 전류 신호를 단순한 센서 데이터로 보지 않고, <strong>구조적 운동 상태의 투영물로 해석</strong>한다는 점에서 기존의 평균값 기반 진단 지표(RMS, Peak, Crest Factor 등)와 차별화됩니다. 이는 구조역학, 시스템 진동, 그리고 신호처리의 접점에서 <strong>현상 기반 고장 조기 감지에 대한 물리적 타당성</strong>을 부여하는 핵심입니다.
 </p>
 
-<h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>🧪 실험 신호 리듬 구조의 설계 원리</h4>
+<h4 id="experiment-design" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>🧪 실험 신호 리듬 구조의 설계 원리</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   본 실험에 사용된 전류 신호는 총 120초간 수집되며, <strong>정상–전이–고장</strong>의 3단계로 구성됩니다.
@@ -421,7 +421,7 @@ plt.show()`}
   단순한 노이즈 주입 시뮬레이션이 아닌, <strong>에너지 전달–복원력–감쇠 특성의 변화</strong>를 반영한 설계입니다.
 </p>
 
-<h4 style={{ marginTop: '48px', fontSize: '1.1rem', color: '#333' }}>📊 SRE와 NSI: 두 리듬 지표의 상보성</h4>
+<h4 id="sre-nsi-complement" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>📊 SRE와 NSI: 두 리듬 지표의 상보성</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   <strong>SRE(Structural Rhythm Entropy)</strong>는 신호의 <em>위상–주기–곡률</em> 구조가 얼마나 정형적으로 유지되는지를 분석하여,
@@ -451,7 +451,7 @@ plt.show()`}
 
 <h3 style={{ marginTop: '48px', fontSize: '1.25rem' }}>🧱 회전체 리듬 붕괴의 물리 기반: 질량–감쇠–강성(M–C–K) 모델 해석</h3>
 
-<h4 style={{ marginTop: '24px', fontSize: '1.1rem', color: '#333' }}>🧠 회전체는 왜 리듬을 가지는가?</h4>
+<h4 id="why-rhythm" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>🧠 회전체는 왜 리듬을 가지는가?</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   여기서 <strong>‘리듬’</strong>이란, 회전체가 외력 없이 스스로 유지하는 <strong>고유 주기적 운동 패턴</strong>을 뜻합니다. 
@@ -472,7 +472,7 @@ plt.show()`}
   </ul>
 </p>
 
-<h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>⚖️ 질량(m): 회전체 리듬의 시작점</h4>
+<h4 id="mass" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>⚖️ 질량(m): 회전체 리듬의 시작점</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   <strong>질량 m</strong>은 회전체의 로터, 샤프트, 부품 등 전체 구조의 물리적 무게에 해당하며, 고유 진동수 및 반응 특성을 결정하는 핵심 변수입니다.
@@ -491,7 +491,7 @@ plt.show()`}
 </p>
 
 
-<h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>🛢️ 감쇠(c): 진동 에너지의 소멸과 혼란</h4>
+<h4 id="damping" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>🛢️ 감쇠(c): 진동 에너지의 소멸과 혼란</h4>
 
 <p style={{ marginTop: '24px', lineHeight: '1.8' }}>
   <strong>감쇠 계수 c</strong>는 진동 에너지가 어떻게 소실되는지를 결정하는 요소로, 회전체의 <strong>베어링 마찰, 축 접촉면의 저항, 윤활 상태</strong> 등에 의해 영향을 받습니다.
@@ -509,7 +509,7 @@ plt.show()`}
 </p>
 
 
-<h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>📡 비선형 감쇠와 고주파 리듬 교란</h4>
+<h4 id="nonlinear-damping" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>📡 비선형 감쇠와 고주파 리듬 교란</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   예를 들어, 베어링 표면의 미세 손상은 일정 조건에서 <strong>비선형 모드 간섭(nonlinear mode interference)</strong>을 유도하며, 정상 리듬 신호의 주기적 구조가 깨지고
@@ -526,7 +526,7 @@ plt.show()`}
   감쇠의 변화는 전류 신호의 <strong>진폭 변동성 증가</strong>, <strong>비주기적 패턴 삽입</strong>으로 나타나며, 이로 인해 시스템은 더 이상 예측 가능한 리듬을 유지할 수 없게 됩니다.
 </p>
 
-<h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>🧲 강성(k): 리듬 복원의 힘</h4>
+<h4 id="stiffness" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>🧲 강성(k): 리듬 복원의 힘</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   강성이 점진적으로 저하되면, 진동 에너지가 빠르게 복원되지 못하고 시스템에 <strong>잔류 진동</strong>으로 남게 됩니다.
@@ -544,7 +544,7 @@ plt.show()`}
 </p>
 
 
-<h4 style={{ marginTop: '48px', fontSize: '1.2rem', color: '#333' }}>📉 SRE 기준선 이동과 리듬 붕괴 탐지</h4>
+<h4 id="sre-shift" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>📉 SRE 기준선 이동과 리듬 붕괴 탐지</h4>
 
 <p style={{ marginTop: '16px', lineHeight: '1.8' }}>
   <strong>SRE(Structural Rhythm Entropy)</strong>는 리듬 곡률의 불안정성을 기반으로 하기 때문에, 
@@ -591,7 +591,7 @@ plt.show()`}
 </p>
 
 
-<h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>📈 NSI: 잡음 안정성 기반 리듬 붕괴 보조 지표</h4>
+<h4 id="nsi" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>📈 NSI: 잡음 안정성 기반 리듬 붕괴 보조 지표</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   본 논문에서는 <strong>리듬 붕괴의 신호 안정성 측면을 보완적으로 해석</strong>하기 위해 <strong>NSI(Noise Stability Index)</strong>를 함께 제안하였습니다.
@@ -624,7 +624,7 @@ plt.show()`}
 
 </p>
 
-<h4 style={{ marginTop: '36px', fontSize: '1.1rem', color: '#333' }}>🧩 감쇠–리듬–지표의 통합 해석</h4>
+<h4 id="integration" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>🧩 감쇠–리듬–지표의 통합 해석</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   요약하면, 감쇠 계수 c는 단순한 에너지 소실의 역할을 넘어, <strong>시스템의 리듬 구조를 불안정하게 만들고, 고장 전이 과정을 촉진</strong>하는 결정적 인자로 기능합니다.
