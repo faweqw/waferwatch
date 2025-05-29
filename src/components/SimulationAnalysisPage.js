@@ -18,7 +18,12 @@ export default function SimulationAnalysisPage() {
 
   return (
     <div style={{ padding: '24px', fontFamily: 'Hanna11, sans-serif' }}>
-      <h2 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>🖥️ 시뮬레이션 분석</h2>
+  <h2 id="simulation" style={{ fontSize: '1.5rem', marginBottom: '16px' }}>🖥️ 시뮬레이션 분석</h2>
+
+  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '16px' }}>
+  <a href="#simulation" style={tocStyle}>🖥️ 시뮬레이션 분석</a>
+  <a href="#twin-cases" style={tocStyle}>📚 디지털 트윈 사례</a>
+</div>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', margin: '16px 0' }}>
   <a href="#code" style={tocStyle}>📎 코드 전문</a>
@@ -687,8 +692,7 @@ plt.show()`}
 
 </p>
 
-<h2 style={{ marginTop: '64px', fontSize: '1.25rem' }}>📚 주요 기업별 디지털 트윈 적용 사례</h2>
-
+<h2 id="twin-cases" style={{ marginTop: '64px', fontSize: '1.25rem' }}>📚 주요 기업별 디지털 트윈 적용 사례</h2>
 <DigitalTwinLinks />
 
 
