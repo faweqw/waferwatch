@@ -403,7 +403,7 @@ plt.show()`}
   결론적으로, 신호 기반 진단 모델은 단순 고장 인식 수준을 넘어서 반도체 장비의 전체 생애주기를 예측하고 최적화하는 기술의 핵심 축이 되어가고 있다. 특히 곡률 기반 지표와 리듬 분석은 고장을 사후에 식별하는 것이 아닌, 구조적 리듬 붕괴라는 형태로 사전에 징후를 감지할 수 있다는 점에서 디지털 트윈 시스템 내에서 매우 강력한 진단 도구로 기능할 수 있다. 이러한 접근은 향후 스마트 팩토리와 연결되는 진정한 <strong>지능형 반도체 제조 시스템</strong> 구현의 핵심 기술이 될 것이다.
 </p>
 
-<h4 id="concept-intuition" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>😮 개념의 직관적 해설과 정당성</h4>
+<h4 id="intuitive" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>😮 개념의 직관적 해설과 정당성</h4>
 
 <p style={{ marginTop: '24px', lineHeight: '1.8' }}>
   복잡한 공정 장비의 동작은 일정한 리듬과 반복을 따릅니다. 이 리듬은 마치 시계의 태엽처럼 고르게 움직이지만, 미세한 마찰, 누적된 하중, 구조 피로 등이 쌓이면 그 고른 리듬은 점차 흔들리기 시작합니다. 본 분석의 핵심은 <strong>그 ‘흔들림’을 수치화하고, 그 속에서 고장을 예측하는 것</strong>입니다.
@@ -447,7 +447,7 @@ plt.show()`}
   이 세 가지 지표는 공통적으로, 전류 신호를 단순한 센서 데이터로 보지 않고, <strong>구조적 운동 상태의 투영물로 해석</strong>한다는 점에서 기존의 평균값 기반 진단 지표(RMS, Peak, Crest Factor 등)와 차별화됩니다. 이는 구조역학, 시스템 진동, 그리고 신호처리의 접점에서 <strong>현상 기반 고장 조기 감지에 대한 물리적 타당성</strong>을 부여하는 핵심입니다.
 </p>
 
-<h4 id="experiment-design" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>🧪 실험 신호 리듬 구조의 설계 원리</h4>
+<h4 id="design" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>🧪 실험 신호 리듬 구조의 설계 원리</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   본 실험에 사용된 전류 신호는 총 120초간 수집되며, <strong>정상–전이–고장</strong>의 3단계로 구성됩니다.
@@ -475,7 +475,7 @@ plt.show()`}
   단순한 노이즈 주입 시뮬레이션이 아닌, <strong>에너지 전달–복원력–감쇠 특성의 변화</strong>를 반영한 설계입니다.
 </p>
 
-<h4 id="sre-nsi-complement" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>📊 SRE와 NSI: 두 리듬 지표의 상보성</h4>
+<h4 id="sre-nsi" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>📊 SRE와 NSI: 두 리듬 지표의 상보성</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   <strong>SRE(Structural Rhythm Entropy)</strong>는 신호의 <em>위상–주기–곡률</em> 구조가 얼마나 정형적으로 유지되는지를 분석하여,
@@ -563,7 +563,7 @@ plt.show()`}
 </p>
 
 
-<h4 id="nonlinear-damping" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>📡 비선형 감쇠와 고주파 리듬 교란</h4>
+<h4 id="nonlinear" style={{ marginTop: '36px', fontSize: '1.25rem', fontWeight: 'bold', color: '#333' }}>📡 비선형 감쇠와 고주파 리듬 교란</h4>
 
 <p style={{ marginTop: '12px', lineHeight: '1.8' }}>
   예를 들어, 베어링 표면의 미세 손상은 일정 조건에서 <strong>비선형 모드 간섭(nonlinear mode interference)</strong>을 유도하며, 정상 리듬 신호의 주기적 구조가 깨지고
