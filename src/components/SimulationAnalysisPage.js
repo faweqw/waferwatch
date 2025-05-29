@@ -651,7 +651,7 @@ plt.show()`}
   이 감쇠의 변동성은 NSI를 통해 수치화되며, 실시간 리듬 감시 시스템에 적용 시 매우 유효한 경보 트리거로 활용될 수 있습니다.
 </p>
 
-<h3 style={{ marginTop: '64px', fontSize: '1.25rem' }}>📚 주요 기업별 디지털 트윈 적용 사례</h3>
+<h2 style={{ marginTop: '64px', fontSize: '1.25rem' }}>📚 주요 기업별 디지털 트윈 적용 사례</h2>
 
 <p style={{ marginTop: '24px', lineHeight: '1.8' }}>
   회전체 기반 설비의 리듬 분석은 실제 산업 현장에서 <strong>디지털 트윈</strong> 기반 예지보전 시스템과 밀접한 관련이 있습니다.
