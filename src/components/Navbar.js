@@ -21,6 +21,7 @@ export default function Navbar() {
       <Link to="/visual" style={navButtonStyle}>🧠 시각화 모드</Link>
       <Link to="/data" style={navButtonStyle}>⚙️ 설비 데이터 추가</Link>
       <Link to="/simulation" style={navButtonStyle}>🖥️ 시뮬레이션 분석</Link>
+      <Link to="/paper" style={navButtonStyle}>📄 논문 분석</Link>
 
     </div>
   );

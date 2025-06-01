@@ -7,6 +7,7 @@ import VisualDashboard from './components/VisualDashboard';
 import VariableExplanation from './components/VariableExplanation';
 import EquipmentDataPage from './components/EquipmentDataPage';
 import SimulationAnalysisPage from './components/SimulationAnalysisPage'; // 상단에 추가
+import PaperAnalysisPage from './components/PaperAnalysisPage'; // 추가
 
 
 
@@ -36,6 +37,7 @@ export default function App() {
             <Route path="/variables" element={<VariableExplanation />} />
             <Route path="/data" element={<EquipmentDataPage />} /> 
             <Route path="/simulation" element={<SimulationAnalysisPage />} />
+            <Route path="/paper" element={<PaperAnalysisPage />} /> {/* 추가 */}
           </Routes>
         </div>
       </div>

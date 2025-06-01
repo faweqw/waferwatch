@@ -17,15 +17,15 @@ export default function SimulationAnalysisPage() {
   };
 
   return (
-    <div style={{ padding: '24px', fontFamily: 'Hanna11, sans-serif' }}>
+  <div style={{ padding: '24px', fontFamily: 'Hanna11, sans-serif' }}>
   <h2 id="simulation" style={{ fontSize: '1.5rem', marginBottom: '16px' }}>🖥️ 시뮬레이션 분석</h2>
 
   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '16px' }}>
   <a href="#simulation" style={tocStyle}>🖥️ 시뮬레이션 분석</a>
   <a href="#twin-cases" style={tocStyle}>📚 디지털 트윈 사례</a>
-</div>
+  </div>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '16px', marginBottom: '0px' }}>
+  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '16px', marginBottom: '0px' }}>
   <a href="#code" style={tocStyle}>📎 코드 전문</a>
   <a href="#scenario" style={tocStyle}>🟢 고장 시나리오</a>
   <a href="#multi-indices" style={tocStyle}>📊 다중 지표 분석</a>
@@ -33,7 +33,7 @@ export default function SimulationAnalysisPage() {
   <a href="#limitation" style={tocStyle}>🧪 분석의 한계</a>
   <a href="#twin" style={tocStyle}>💡 디지털 트윈</a>
   <a href="#mck" style={tocStyle}>🧱 M-C-K 모델</a>
-</div>
+  </div>
 
 
   {/* ✅ 목차 카드 삽입 위치 */}
