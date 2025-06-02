@@ -47,6 +47,18 @@ export default function IndustryApplicationPage() {
   <a href="#kla-surfscan-sre-gpi" style={tocStyle}>📈 KLA Surfscan SRE/GPI 분석</a>
 </div>
 
+<h2 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>📈 SRE/GPI 경제성 분석</h2>
+
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '16px' }}>
+  <a href="#sre-gpi-economic-scenarios" style={tocStyle}>💰 경제적 가치: 시나리오 비교</a>
+  <a href="#samsung-sk-line-application" style={tocStyle}>🏭 삼성전자 & SK하이닉스 라인 구조</a>
+  <a href="#realistic-application-scenario" style={tocStyle}>⚙️ 현실적 적용 시나리오</a>
+  <a href="#economic-estimation" style={tocStyle}>📊 경제적 가치 추정 (삼성 DRAM 기준)</a>
+  <a href="#risk-and-response" style={tocStyle}>🧠 도입 리스크 및 대응 전략</a>
+  <a href="#conclusion" style={tocStyle}>✅ 결론 요약</a>
+  <a href="#sk-hynix-application" style={tocStyle}>🏢 SK하이닉스 전용 적용 전략</a>
+</div>
+
     {/* 반응형 이미지 삽입 */}
 <img
   src="/images/c1.png"
@@ -576,7 +588,17 @@ plt.show()
 </p>
 
 <p style={{ lineHeight: '1.8', marginTop: '16px' }}>
-  <b>🧩 실무 적용 예시:</b> Transfer Arm의 전류 신호를 2초 단위 슬라이딩 윈도우로 분석하고, GPI &gt 0.78, SRE &gt 2.1 이상이 반복적으로 나타나는 챔버를 식별합니다. 
+  <b>🧩 실무 적용 예시:</b> Transfer Arm의 전류 신호를 2초 단위 슬라이딩 윈도우로 분석하고, GPI <h2 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>📈 SRE/GPI 경제성 분석 목차</h2>
+
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '16px' }}>
+  <a href="#sre-gpi-economic-scenarios" style={tocStyle}>💰 경제적 가치: 시나리오 비교</a>
+  <a href="#samsung-sk-line-application" style={tocStyle}>🏭 삼성전자 & SK하이닉스 라인 구조</a>
+  <a href="#realistic-application-scenario" style={tocStyle}>⚙️ 현실적 적용 시나리오</a>
+  <a href="#economic-estimation" style={tocStyle}>📊 경제적 가치 추정 (삼성 DRAM 기준)</a>
+  <a href="#risk-and-response" style={tocStyle}>🧠 도입 리스크 및 대응 전략</a>
+  <a href="#conclusion" style={tocStyle}>✅ 결론 요약</a>
+  <a href="#sk-hynix-application" style={tocStyle}>🏢 SK하이닉스 전용 적용 전략</a>
+</div> GPI &gt; 0.78, SRE &gt; 2.1 이상이 반복적으로 나타나는 챔버를 식별합니다. 
   해당 챔버에서 과거에 증착 두께 불균일 문제가 발생했던 기록이 수율 데이터베이스에서 확인됩니다. 
   이후 해당 베어링을 교체하자 GPI와 SRE 지표가 급감하고 수율이 회복됩니다. 
   이러한 분석은 단순 경고를 넘어 고장 원인을 직접 제거하는 인과 기반 조치로 이어질 수 있습니다.
@@ -707,9 +729,9 @@ plt.show()
 
   <b>SRE (Spectral Rhythm Entropy) 흐름:</b><br />
   정상 작동 시 회전·이송 신호의 주파수 성분은 고정된 구조 리듬을 따릅니다. Stage의 정렬 불안, 진공 압력 요동 등으로 리듬이 무너짐 
-  <span style={{ fontFamily: 'Arial, sans-serif' }}> → </span>
+  <span style={{ fontFamily: 'Arial, sans-serif' }}> ➡ </span>
   스펙트럼 분포 복잡도 상승 
-  <span style={{ fontFamily: 'Arial, sans-serif' }}> → </span>
+  <span style={{ fontFamily: 'Arial, sans-serif' }}> ➡ </span>
   SRE 증가<br />
   예시: SRE 정상 
   <span style={{ fontFamily: 'Arial, sans-serif' }}> ≈ </span>
@@ -1133,6 +1155,270 @@ plt.show()
   기존 이상 탐지 체계로는 감지하기 어려운 '전조 상태'를 실시간으로 추적할 수 있습니다.
   이는 단순 고장 탐지를 넘어 수율 안정화와 정밀도 유지의 핵심 전략으로 진화할 수 있으며,
   향후 KLA 장비군에서 구조 리듬 분석 기법의 도입은 필연적인 선택이 될 가능성이 높습니다.
+</p>
+
+<h3 id="sre-gpi-economic-scenarios" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+  💰 SRE/GPI 기술의 경제적 가치: 긍정적 vs 부정적 시나리오
+</h3>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>📊 개요: 경제적 가치 평가의 필요성</b><br />
+  구조 리듬 기반 분석 기술(SRE/GPI)은 반도체 산업에서 장비의 예지 보전을 실현하는 핵심 기술로 부상할 수 있습니다.
+  다운타임 감소, 수율 향상, 유지보수 효율화, 자산 수명 관리 등 다양한 측면에서 경제적 가치를 창출할 수 있으며,
+  이에 따라 실제 반도체 FAB에서의 도입 시나리오를 긍정적/부정적으로 구분해 수치 기반의 영향력을 분석하는 것이 필요합니다.
+</p>
+
+<h4 style={{ fontWeight: 'bold', marginTop: '24px' }}>✅ 긍정적 시나리오: 성공적 도입 및 확산</h4>
+
+<p style={{ lineHeight: '1.8', marginTop: '12px' }}>
+  <b>🕛 다운타임 감소 효과</b><br />
+  장비 고장으로 인한 비계획 정지는 대형 FAB에서 막대한 손실을 초래합니다.
+  SRE/GPI 기술이 고장 수 시간~수일 전의 리듬 붕괴를 감지함으로써 예지 정비가 가능해지고,
+  장비 가동 중단 시간이 30%만 줄어들어도 연간 약 100억 원 이상의 손실 방지가 가능합니다.
+</p>
+
+<p style={{ lineHeight: '1.8' }}>
+  <b>📈 수율 향상 효과</b><br />
+  웨이퍼 생산 수율이 0.1%만 향상되더라도, 월 10만장 생산 기준으로 연간 약 300억 원 이상의 수익 증대 효과가 발생합니다.
+  이는 구조 리듬 기반 이상 탐지를 통해 불량 유발 요인을 조기 제거할 수 있기 때문입니다.
+</p>
+
+<p style={{ lineHeight: '1.8' }}>
+  <b>💰 유지보수 비용 절감</b><br />
+  기존 유지보수 방식은 고장 후 긴급 수리나 불필요한 정기 점검으로 인해 비효율적인 자원 낭비가 발생합니다.
+  SRE/GPI 기반 예측 유지보수 체계는 유지보수 비용의 20~30% 절감을 가능하게 하며, 이는 연간 100~150억 원 절감으로 이어질 수 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8' }}>
+  <b>🦾 장비 자산 수명 연장</b><br />
+  회전체의 마모나 편심, 진공 펌프의 감쇠 저하 등을 조기에 감지하여 구조적 손상을 예방할 수 있습니다.
+  이를 통해 고가 장비의 교체 시기를 1~2년 이상 연장할 수 있으며, 100대 규모의 장비군에서 수백억 원의 자산 보존 효과를 기대할 수 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8' }}>
+  <b>🔁 장비 설계 피드백 및 신제품 개발 기여</b><br />
+  SRE/GPI 기술로 축적된 리듬 데이터는 장비 설계의 약점을 식별하는 중요한 피드백으로 작용할 수 있습니다.
+  이는 장비 제조사와의 공동 개발로 이어지며, 차세대 장비의 신뢰성과 경쟁력을 높이는 기반이 됩니다.
+</p>
+
+<p style={{ lineHeight: '1.8' }}>
+  <b>📊 종합 효과</b><br />
+  위 요소들을 종합하면, SRE/GPI 기술의 성공적 도입 시 연간 700억 원에서 1,000억 원 이상의 직접적인 경제적 가치를 창출할 수 있으며,
+  삼성전자, SK하이닉스, TSMC와 같은 Tier-1 기업에서는 이 수치가 연간 수천억 원 규모로 확대될 수 있습니다.
+</p>
+
+<h4 style={{ fontWeight: 'bold', marginTop: '32px' }}>❌ 부정적 시나리오: 도입 실패 또는 제한적 확산</h4>
+
+<p style={{ lineHeight: '1.8', marginTop: '12px' }}>
+  <b>💸 초기 도입 비용 과다</b><br />
+  SRE/GPI 시스템을 도입하기 위해서는 고정밀 센서 설치, 신호 수집 장치 구축, 분석 서버 운영 등 초기 인프라 투자 비용이 필요합니다.
+  이는 공정별로 수십억 원 규모가 소요되며, 도입 시 ROI 확보에 대한 의문이 발생할 수 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8' }}>
+  <b>⚠️ 신뢰성 확보 실패</b><br />
+  경고 이벤트와 실제 고장 간의 불일치가 반복될 경우, 기술에 대한 신뢰도가 하락하고 현장 엔지니어들 사이에서 거부감이 생길 수 있습니다.
+  이는 유지보수 체계의 혼선을 유발하고, 오히려 수율 저하나 불필요한 정비로 이어질 위험도 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8' }}>
+  <b>📉 기술 고립 및 운영 충돌</b><br />
+  기존의 RMS/FFT 기반 진단 체계와의 통합이 어렵거나, 신호 해석 방식의 표준화가 되지 않을 경우 기술은 고립될 수 있습니다.
+  그 결과로 기존 시스템과 병렬 운영이 필요해지며, 중복 비용이 발생하고 운영 복잡도가 증가합니다.
+</p>
+
+<p style={{ lineHeight: '1.8' }}>
+  <b>🚫 장비사와의 협력 실패</b><br />
+  리듬 데이터의 정확한 해석을 위해 장비 내부 구조나 설계와의 연동이 필요한데, 장비사 측에서 이를 거부하거나 협력하지 않는다면
+  기술 확산이 제한되고 장기적으로 기술이 폐기될 가능성도 존재합니다.
+</p>
+
+<p style={{ lineHeight: '1.8' }}>
+  <b>📉 종합 손실 가능성</b><br />
+  위와 같은 요소가 동시에 발생할 경우, 연간 100억 원에서 최대 300억 원까지의 손실 및 기회비용이 발생할 수 있으며,
+  장기적으로는 기술 자체의 도입 가능성이 산업 내에서 사라질 수 있는 리스크도 존재합니다.
+</p>
+
+<h4 style={{ fontWeight: 'bold', marginTop: '32px' }}>📌 결론: 기술 도입의 전략적 판단 기준</h4>
+
+<p style={{ lineHeight: '1.8' }}>
+  SRE/GPI 기술은 다운타임 감축, 수율 향상, 설비 자산 최적화 측면에서 매우 높은 경제적 파급력을 가지고 있습니다.
+  그러나 초기에 신호 해석의 정확도와 실무 적용성 확보가 실패할 경우, 기술은 쉽게 외면받을 수 있는 구조적 한계도 존재합니다.
+  따라서 <b>Pilot 적용 ➡ 효과 검증 ➡ 점진 확산</b>이라는 단계적 도입 전략과, 신뢰 가능한 수치 기반의 성과 분석이 병행되어야
+  산업 전반으로 확산 가능한 고부가 기술로 자리잡을 수 있습니다.
+</p>
+
+<h3 id="samsung-sk-line-application" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+✅ 1. 적용 대상: 삼성전자 & SK하이닉스 라인 구조
+</h3>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+<b>📌 삼성전자</b>는 평택 P3 라인(5nm EUV, DRAM), 화성 라인, 온양 패키징 라인을 주력으로 운영하며,
+ASML EUV, Lam ALTUS, TEL Trias, AMAT Endura, KLA Surfscan 등 고정밀 회전체 장비를 다수 보유하고 있습니다.
+노광, 증착, 식각, 클린, CMP, 패키징 등의 공정에서 회전체 기반 장비가 집중되어 있어 구조 리듬 기반 진단 기술의 적용 여지가 높습니다.
+전류 및 진동 센서가 부착된 장비가 다수 존재하며, Top-down 방식으로 PoC 승인을 받은 후 확산되는 방식의 문화적 특성을 가집니다.
+</p>
+
+<p style={{ lineHeight: '1.8' }}>
+<b>📌 SK하이닉스</b>는 이천 M16과 청주 M15 라인에서 DRAM 제조를 집중적으로 수행하고 있으며,
+이송 및 패키징, 후공정 검사, 로딩 유닛 등 자동화된 장비군에서 회전체 기반의 구조 리듬 분석이 가능할 것으로 예상됩니다.
+Lam, AMAT, TEL 등의 장비와 자체 커스터마이징 장비를 혼용하고 있으며,
+Bottom-up 제안보다는 실증 중심의 도입을 선호하는 실무 중심의 문화가 특징입니다.
+</p>
+
+<h3 id="realistic-application-scenario" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+⚙️ 2. 현실적 적용 시나리오 흐름 (PoC~확산)
+</h3>
+
+<h4 style={{ fontWeight: 'bold', marginTop: '16px' }}>1️⃣ 파일럿 단계 (6개월 이내)</h4>
+<ul style={{ lineHeight: '1.8' }}>
+  <li><b>대상 장비 선정:</b> Lam ALTUS CVD, AMAT Endura PVD 등 회전체 및 펌프 기반 장비</li>
+  <li><b>신호 확보:</b> 설비 내 전류/진동 센서를 Logger 또는 PLC에서 미러링 수집</li>
+  <li><b>SRE/GPI 도입:</b> GPI는 이송 장비의 곡률 변화, SRE는 CVD 배기계의 리듬 주파수 기반 분석</li>
+  <li><b>고장 전조 탐지 여부 확인:</b> 과거 고장과의 정합성 검증 (False alarm 최소화)</li>
+  <li><b>산출물:</b> 고장 사전 감지율 70% 이상, 수율 변화 correlation 분석, 운영 리포트 제출</li>
+</ul>
+
+<p style={{ lineHeight: '1.8' }}>
+🟢 <b>예상 성과:</b><br />
+다운타임 10~20% 감소<br />
+수율 저하 연계 고장 조기 인지 성공<br />
+단일 장비군 기반 운영 ROI 가시화 시작
+</p>
+
+<h4 style={{ fontWeight: 'bold', marginTop: '24px' }}>2️⃣ 부서 단위 확산 (6~12개월)</h4>
+<ul style={{ lineHeight: '1.8' }}>
+  <li><b>데이터 기반 확장:</b> 1차 PoC에서 수집한 SRE/GPI 데이터 확대 분석</li>
+  <li><b>운영 정책 변경:</b> 예측 이벤트 발생 시 인력 자동 배치 및 점검 주기 최적화</li>
+  <li><b>시각화 연동:</b> FDC 및 Fab Dashboard 시스템에 SRE/GPI 경고 통합</li>
+  <li><b>이슈 대응:</b> False Positive 최소화를 위한 NSI 병렬 구조 도입</li>
+  <li><b>조직 내 신뢰 확보:</b> 실장급 이상 보고, 구조적 해석 기반의 논리 공유</li>
+</ul>
+
+<p style={{ lineHeight: '1.8' }}>
+🟢 <b>기대 성과:</b><br />
+장비 전체 가동률 1~2% 상승<br />
+수율 개선 효과 연간 수십억 원 규모 확인<br />
+유지보수 비용 10% 절감 및 고부가 인력 전환
+</p>
+
+<h4 style={{ fontWeight: 'bold', marginTop: '24px' }}>3️⃣ FAB 전반/기업 차원 확산 (2~3년)</h4>
+<ul style={{ lineHeight: '1.8' }}>
+  <li><b>디지털 트윈 연동:</b> GPI/SRE 지표를 디지털 트윈 시뮬레이터에 연계</li>
+  <li><b>장비사와 공동 개선:</b> Lam, KLA 등과 리듬 붕괴 기반의 구조 설계 개선 추진</li>
+  <li><b>엔지니어링 표준화:</b> PM 매뉴얼 내 SRE/GPI 기준치 삽입</li>
+  <li><b>통합 모니터링:</b> RMS/FFT 기반 체계와 병렬 연동된 시각화 완비</li>
+  <li><b>수율 AI 모델 활용:</b> 고장 조기 진단 및 품질 예측용 피처로 SRE/GPI 활용</li>
+</ul>
+
+<p style={{ lineHeight: '1.8' }}>
+🟢 <b>최종 기대 성과:</b><br />
+다운타임 최대 30% 감소<br />
+수율 개선 연간 수백억 원 규모<br />
+신기술 적용 FAB 벤치마크로 글로벌 경쟁력 확보
+</p>
+
+<h3 id="economic-estimation" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+💰 3. 경제적 가치 추정 (삼성전자 DRAM 기준)
+</h3>
+
+<p style={{ lineHeight: '1.8' }}>
+<b>보수적 추정:</b><br />
+수율 개선(0.1%)으로 +150억 원/년<br />
+가동률 상승(1~2%)으로 +50~100억 원/년<br />
+유지보수 절감 +20~50억 원/년<br />
+고장 사전 방지 +30~100억 원/년<br />
+<b>총계:</b> 연간 +250~400억 원 수준
+</p>
+
+<p style={{ lineHeight: '1.8' }}>
+<b>적극적 추정:</b><br />
+수율 개선 +400억 원/년<br />
+가동률 상승 +200억 원/년<br />
+유지보수 절감 +100억 원/년<br />
+고장 사전 방지 +100억 원/년<br />
+<b>총계:</b> 연간 +600~800억 원 이상 (DRAM FAB 단일 기준)<br />
+📌 이 수치는 삼성 평택 P3 또는 SK하이닉스 M16 FAB 기준 추정치이며, 전사 확산 시 수천억 원 규모로 확대될 수 있습니다.
+</p>
+
+<h3 id="risk-and-response" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+🧠 4. 도입 시 리스크 및 대응 전략
+</h3>
+
+<ul style={{ lineHeight: '1.8' }}>
+  <li><b>기술 신뢰 부족:</b> 신호 해석이 추상적일 경우 거부감 유발 ➡ GPI 곡률 기반 논문화 + 설명회 병행</li>
+  <li><b>실시간성 미흡:</b> 고속 설비에서는 데이터 처리 지연 ➡ ESP-Lite + NSI 병렬 구조로 민감도 제어</li>
+  <li><b>시스템 통합 비용:</b> FDC, MES 연동 비용 부담 ➡ 선택적 장비군부터 점진적 확산 설계</li>
+  <li><b>False Positive 이슈:</b> 불필요한 점검 유발 ➡ Threshold 튜닝 및 구조 조건 동시 적용</li>
+</ul>
+
+<h3 id="conclusion" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+✅ 결론
+</h3>
+
+<p style={{ lineHeight: '1.8' }}>
+삼성전자와 SK하이닉스 생산 라인에 SRE/GPI 기술을 적용할 경우, 연간 수백억 원 규모의 수익 향상 및 장비 가동률 개선 효과가 기대됩니다.
+기술 도입 초기에는 PoC 기반의 신뢰성 확보와 실증 성공이 핵심이며, 해석 가능성과 시각화 연동 역량이 확산의 핵심 열쇠가 됩니다.
+신뢰 기반의 성과 지표를 축적한다면, 해당 기술은 반도체 제조업 전반의 디지털화 흐름 속에서 전략 기술로 자리매김할 수 있습니다.
+</p>
+
+<h3 id="sk-hynix-application" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+🏢 SK하이닉스 전용 SRE/GPI 기술 적용 시나리오
+</h3>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>📌 주요 적용 대상 라인 및 특성</b><br />
+  SK하이닉스는 이천 M16과 청주 M15 라인에서 고성능 DRAM 생산을 주도하고 있으며, 특히 후공정(이송, 패키징, 검사) 자동화 비중이 높습니다.
+  Lam, TEL, AMAT 계열의 장비 외에도 자체 커스터마이징된 이송 장비 및 진공 공정 장비가 많아, 곡률 기반 구조 리듬 분석 기술(GPI/SRE)의 적용성이 높습니다.
+  실무 중심의 <b>Bottom-up 실증 문화</b>가 강하며, 단일 공정에서의 성능 검증을 기반으로 기술을 확산시키는 경향이 강합니다.
+</p>
+
+<h4 style={{ fontWeight: 'bold', marginTop: '24px' }}>⚙️ 파일럿 도입 시나리오 (6개월)</h4>
+<ul style={{ lineHeight: '1.8' }}>
+  <li><b>적용 장비:</b> 로딩 암, 진공 배기 펌프, 검사기 이송 유닛</li>
+  <li><b>신호 수집:</b> 기존 전류/진동 센서 I/F 또는 추가 센서 부착 후 로컬 Logger 연동</li>
+  <li><b>분석 방식:</b> GPI는 이송 경로의 곡률 변화, SRE는 배기 계통의 주파수 불안정성 분석</li>
+  <li><b>평가 지표:</b> 고장 사전 감지율, 수율 변화와의 상관성, FDC 연동 가능성</li>
+</ul>
+
+<p style={{ lineHeight: '1.8' }}>
+🟢 <b>기대 효과:</b> 고장 예지 성능 70% 이상, 비계획 정비 최소화, 라인 수율 저하 선제 대응 가능성 확인
+</p>
+
+<h4 style={{ fontWeight: 'bold', marginTop: '24px' }}>📈 부서 단위 확산 (6~12개월)</h4>
+<ul style={{ lineHeight: '1.8' }}>
+  <li><b>적용 영역 확대:</b> 후공정 자동화 장비군으로 확대</li>
+  <li><b>정비 자동화 연동:</b> GPI 경보 발생 시 정비 일정 자동 등록</li>
+  <li><b>운영 시스템 통합:</b> SRE/GPI 지표를 Fab Dashboard 또는 Yield Monitor와 연동</li>
+  <li><b>조직 내부 확산:</b> 실장/파트장 주도 정기 리뷰로 기술 내재화</li>
+</ul>
+
+<p style={{ lineHeight: '1.8' }}>
+🟢 <b>성과 기대:</b> DRAM 라인 전체에서 연간 수율 0.1~0.3% 개선, 다운타임 20% 이상 감소
+</p>
+
+<h4 style={{ fontWeight: 'bold', marginTop: '24px' }}>🏭 전사 확산 및 전략적 정착 (2~3년)</h4>
+<ul style={{ lineHeight: '1.8' }}>
+  <li><b>PM 기준 정비:</b> 구조 리듬 이상 조건을 정기 점검 항목에 반영</li>
+  <li><b>설비별 알고리즘 최적화:</b> 장비 유형별 GPI/SRE 학습 기반 Threshold 자동 설정</li>
+  <li><b>신뢰성 인증 확보:</b> SRE/GPI 기반 정비 이력으로 장비 성능 추적</li>
+  <li><b>협력사 피드백:</b> 장비 제작사에 리듬 붕괴 패턴 공유 ➡ 차세대 장비 개선 피드백</li>
+</ul>
+
+<p style={{ lineHeight: '1.8' }}>
+🟢 <b>장기적 기대:</b> 예지 정비가 표준으로 정착되며, 수백억 원 단위의 장비 교체 비용 절감 및 라인 수율 안정화 달성
+</p>
+
+<h4 style={{ fontWeight: 'bold', marginTop: '24px' }}>💡 SK하이닉스 특화 전략 요약</h4>
+<ul style={{ lineHeight: '1.8' }}>
+  <li><b>실증 기반 확산:</b> 하나의 장비/공정에서 성능 입증 ➡ 수직 계열 부서 전체 확산</li>
+  <li><b>시각화 기반 보고:</b> Dash 패널을 통해 관리직/임원 대상 고장 위험도 실시간 공유</li>
+  <li><b>MES/FDC 친화형 설계:</b> 기존 Yield/Alarm 시스템과의 연동 고려한 지표 설계</li>
+</ul>
+
+<p style={{ lineHeight: '1.8' }}>
+📌 SK하이닉스는 구조 리듬 분석 기술을 통해 실무 중심의 정비 자동화, 수율 개선, 설비 수명 관리라는 세 가지 핵심 지표를 모두 강화할 수 있으며,
+라인의 복잡도와 자동화 수준이 높을수록 이 기술의 도입 효과는 더욱 증대됩니다.
 </p>
 
     </div>
