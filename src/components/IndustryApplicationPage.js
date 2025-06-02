@@ -588,17 +588,8 @@ plt.show()
 </p>
 
 <p style={{ lineHeight: '1.8', marginTop: '16px' }}>
-  <b>🧩 실무 적용 예시:</b> Transfer Arm의 전류 신호를 2초 단위 슬라이딩 윈도우로 분석하고, GPI <h2 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>📈 SRE/GPI 경제성 분석 목차</h2>
-
-<div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '16px' }}>
-  <a href="#sre-gpi-economic-scenarios" style={tocStyle}>💰 경제적 가치: 시나리오 비교</a>
-  <a href="#samsung-sk-line-application" style={tocStyle}>🏭 삼성전자 & SK하이닉스 라인 구조</a>
-  <a href="#realistic-application-scenario" style={tocStyle}>⚙️ 현실적 적용 시나리오</a>
-  <a href="#economic-estimation" style={tocStyle}>📊 경제적 가치 추정 (삼성 DRAM 기준)</a>
-  <a href="#risk-and-response" style={tocStyle}>🧠 도입 리스크 및 대응 전략</a>
-  <a href="#conclusion" style={tocStyle}>✅ 결론 요약</a>
-  <a href="#sk-hynix-application" style={tocStyle}>🏢 SK하이닉스 전용 적용 전략</a>
-</div> GPI &gt; 0.78, SRE &gt; 2.1 이상이 반복적으로 나타나는 챔버를 식별합니다. 
+  <b>🧩 실무 적용 예시:</b> Transfer Arm의 전류 신호를 2초 단위 슬라이딩 윈도우로 분석하고, 
+  GPI &gt; 0.78, SRE &gt; 2.1 이상이 반복적으로 나타나는 챔버를 식별합니다. 
   해당 챔버에서 과거에 증착 두께 불균일 문제가 발생했던 기록이 수율 데이터베이스에서 확인됩니다. 
   이후 해당 베어링을 교체하자 GPI와 SRE 지표가 급감하고 수율이 회복됩니다. 
   이러한 분석은 단순 경고를 넘어 고장 원인을 직접 제거하는 인과 기반 조치로 이어질 수 있습니다.
