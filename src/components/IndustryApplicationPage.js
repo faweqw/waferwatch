@@ -20,6 +20,7 @@ export default function IndustryApplicationPage() {
 
 {/* 목차 */}
 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '16px' }}>
+  {/* 리듬 분석 패러다임 */}
   <a href="#legacy" style={tocStyle}>📊 전통 분석 방식</a>
   <a href="#ai" style={tocStyle}>🤖 AI 분석 방식</a>
   <a href="#rhythm" style={tocStyle}>🎵 구조 리듬 분석</a>
@@ -31,6 +32,33 @@ export default function IndustryApplicationPage() {
   <a href="#interpretability" style={tocStyle}>🧠 해석 가능성 개선</a>
 </div>
 
+<h2 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>🌐 5대 반도체 장비사 적용 사례</h2>
+
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '16px' }}>
+  {/* 장비별 분석 */}
+  <a href="#amat-endura-report" style={tocStyle}>🛠️ AMAT Endura 분석</a>
+  <a href="#asml-euv-scanner-report" style={tocStyle}>🔬 ASML EUV 개요</a>
+  <a href="#asml-euv-diagnostics-report" style={tocStyle}>⚠️ ASML EUV 고장 분석</a>
+  <a href="#tel-trias-overview" style={tocStyle}>🏢 TEL Trias SPA 개요</a>
+  <a href="#tel-trias-analysis" style={tocStyle}>🧪 TEL Trias SPA 고장 분석</a>
+    <a href="#lam-altus-analysis" style={tocStyle}>🔧 Lam Research ALTUS CVD 분석</a>
+  <a href="#lam-altus-failure-analysis" style={tocStyle}>⚠️ Lam Research ALTUS 고장 및 리듬 분석</a>
+  <a href="#kla-surfscan-mechanism" style={tocStyle}>🔍 KLA Surfscan 동작 메커니즘</a>
+  <a href="#kla-surfscan-sre-gpi" style={tocStyle}>📈 KLA Surfscan SRE/GPI 분석</a>
+</div>
+
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c1.png"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
 
 <h3 id="legacy" style={{ marginTop: '32px', fontWeight: 'bold' }}>📊 전통적 분석 방식 (RMS, FFT 등)</h3>
 <p style={{ lineHeight: '1.8' }}>
@@ -51,6 +79,20 @@ export default function IndustryApplicationPage() {
   고장 대응만으로 시스템을 운영하고 있으며, 고장을 피하는 것이 아니라 '대응'에만 그치는 한계를 보입니다.
 </p>
 
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c2.jpg"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
+
 <h3 id="ai" style={{ marginTop: '32px', fontWeight: 'bold' }}>🤖 AI 기반 분석 방식 (CNN, LSTM 등)</h3>
 <p style={{ lineHeight: '1.8' }}>
   AI 기반 고장 진단은 최근 산업계에서 급부상한 방법론으로, 딥러닝 알고리즘을 활용해 설비의 상태를 분류하거나 예측하는 데 사용됩니다. 
@@ -68,6 +110,20 @@ export default function IndustryApplicationPage() {
   특정 조건에만 최적화되어 있기 때문에, 설비 변경 시마다 전체 시스템을 튜닝하거나 다시 훈련해야 하는 부담이 큽니다. 
   이로 인해 실제로 AI 모델이 정밀하게 만들어져도 <b>운영 유지보수 측면에서 비용과 시간이 많이 드는 비효율적인 결과</b>가 발생하기도 합니다.
 </p>
+
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c3.png"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
 
 <h3 id="rhythm" style={{ marginTop: '32px', fontWeight: 'bold' }}>🎵 구조 리듬 기반 분석 (SRE, GPI 등)</h3>
 <p style={{ lineHeight: '1.8' }}>
@@ -406,7 +462,7 @@ plt.show()
 
 <p style={{ lineHeight: '1.8', marginTop: '16px' }}>
   위 구조는 실제 산업 현장에서 <strong>“SRE가 기준보다 X 이상이면 72시간 이내 베어링 교체 권고”</strong>와 같은 <strong>Rule-based 제어 전략</strong>에 바로 활용될 수 있습니다.
-  또한 시각화와 함께 설명 카드(예: 감쇠 계수 증가 → 진동 누적 → 리듬 붕괴)를 제공하면 <strong>산업계의 신뢰와 수용성을 획기적으로 향상</strong>시킬 수 있습니다.
+  또한 시각화와 함께 설명 카드(예: 감쇠 계수 증가 ➡ 진동 누적 ➡ 리듬 붕괴)를 제공하면 <strong>산업계의 신뢰와 수용성을 획기적으로 향상</strong>시킬 수 있습니다.
 </p>
 
 
@@ -426,6 +482,658 @@ plt.show()
   이론-실무 간 간극을 줄이는 핵심 기술로 자리잡을 수 있습니다.
 </p>
 
+
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c4.png"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
+
+
+<h3 id="amat-endura-report" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+  🛠️ AMAT Endura PVD 장비 : 구조 리듬 기반 분석 적용 보고서
+</h3>
+
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>Applied Materials(AMAT)</b>는 미국 캘리포니아에 본사를 둔 세계 최대 반도체 장비 기업 중 하나로, 증착, 식각, 계측, 패터닝 등 다양한 공정 장비를 공급하고 있습니다.
+  특히 메모리와 로직을 모두 커버할 수 있는 장비 라인업을 갖추고 있으며, 삼성전자, SK하이닉스, TSMC 등 글로벌 칩메이커들과의 긴밀한 파트너십을 유지하고 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  AMAT의 대표적인 증착 장비 중 하나인 <b>Endura PVD 시스템</b>은 메탈 배선, barrier/capping layer 증착 등에서 폭넓게 활용됩니다.
+  이 장비는 <b>모듈형 다중 챔버 구조</b>로 구성되어 있어 각 챔버가 독립적으로 진공을 형성하고, 증착 작업을 수행할 수 있습니다.
+  또한 <b>웨이퍼 이송 로봇 암</b>, <b>증착 타겟 회전 모터</b>, <b>진공 펌프 시스템</b> 등 여러 개의 회전 구동 장치가 포함되어 있어,
+  반복성과 정밀도가 높은 작업 환경을 형성하지만, 동시에 구조 리듬 분석을 적용할 수 있는 이상적인 조건을 갖추고 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  Endura의 주요 동작 메커니즘은 다음과 같은 절차로 이루어집니다.
+  먼저 로봇 암이 웨이퍼를 로딩하여 증착 챔버로 이송한 뒤, 진공 펌프가 수 mTorr 수준의 저압 환경을 유지합니다.
+  이후 플라즈마 상태에서 금속 타겟이 원자화되어 웨이퍼 표면에 증착되고, 필요에 따라 다른 챔버로 이송되어 추가 공정을 반복합니다.
+  이 일련의 과정은 높은 정밀도와 반복성을 요구하며, 각 동작에서 발생하는 진동, 전류, 압력 등의 센서 신호에는 일정한 <b>리듬 구조</b>가 내포되어 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  이러한 리듬 구조는 장비가 정상적으로 작동하고 있을 때 일정한 패턴을 가지며,
+  만약 베어링 마모, 중심축 편심, 회전체의 위치 이탈과 같은 미세 이상이 발생할 경우,
+  해당 리듬에 변화가 생기게 됩니다. 이때 <b>SRE(Spectral Rhythm Entropy)</b>는 리듬의 복잡도 증가를, <b>GPI(Geometric Pattern Instability)</b>는 곡률 패턴의 불안정성을 통해 고장 전 조짐을 포착할 수 있습니다.
+  특히 Endura 장비는 이러한 리듬 이상을 수십~수백 ms 단위로 탐지할 수 있는 대표적 사례로 볼 수 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  이처럼 Endura 장비는 구조 리듬 기반 분석 기법이 효과적으로 적용될 수 있는 조건을 갖추고 있으며,
+  복잡한 회전체 구조와 반복 동작, 그리고 고정밀 진공 환경이라는 특수성이 리듬 분석의 민감도를 더욱 높여줍니다.
+  본 분석은 전통적인 RMS 기반 에너지 분석이나 AI 이상 탐지 기법과 달리, <b>“고장 그 자체”가 아닌 “고장이 일어나기 직전의 리듬 변화”</b>에 집중함으로써,
+  조기 경고 시스템을 보다 정밀하게 구현할 수 있는 가능성을 보여줍니다.
+</p>
+
+
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c5.webp"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
+
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>⚠️ 주요 고장 메커니즘:</b> Endura 장비는 모듈형 구조로 설계되어 있지만, 회전체 기반 부품에서 물리적 열화와 진동 문제가 축적됩니다. 
+  Transfer Arm의 베어링은 수천 번의 왕복 동작으로 인해 금속 간 접촉 마모가 누적되며, 중심선 기준 진동 편차가 점차 커집니다. 
+  증착 타겟 회전 모터는 장시간 사용 시 편심 현상이나 챔버 내 열 팽창의 영향으로 균형이 무너질 수 있으며, 이는 리듬의 정합성에 영향을 미칩니다. 
+  또한 진공 펌프의 감쇠 계수 변화는 장시간 구동 시 감쇠력이 감소하여 이상 진동을 제대로 흡수하지 못하게 됩니다. 
+  이러한 고장은 초기에는 수율에 영향을 주지 않지만, 누적되면 웨이퍼 스크래치, 증착 두께 불균일, 입자 오염 등의 문제로 이어집니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>📈 구조 리듬 분석의 역할:</b> SRE(Spectral Rhythm Entropy)는 시간 변화에 따라 전류나 진동 신호의 주파수 리듬이 얼마나 복잡하게 붕괴되는지를 나타내며, 
+  정상 회전 상태에서는 주파수 리듬이 정돈되어 있지만 마모가 발생하면 고주파 성분이 증가하고, SRE 값이 급격히 상승합니다. 
+  GPI(Geometric Pattern Instability)는 신호의 곡률 변화를 기반으로 리듬의 파편화 정도를 정량화하며, 
+  편심이나 불균형 상태가 발생하면 곡률 변화가 불규칙하게 나타나며 GPI가 상승합니다. 
+  SRE는 리듬의 복잡도, GPI는 균형 붕괴를 측정하는 역할을 수행합니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🧠 기존 AI 분석과의 차이:</b> 기존의 AI 기반 분석은 평균값 변화, RMS, Z-score 등을 기반으로 결과값에 대한 이상 탐지에 초점이 맞추어져 있어 고장 이후의 반응에 민감합니다. 
+  하지만 GPI와 SRE는 고장 전 단계에서 구조 리듬의 붕괴를 감지할 수 있으며, 
+  시계열 상에서 연속적인 위험 신호를 통해 누적된 리스크를 판단하고, 기계적 원인을 해석할 수 있는 인과 기반 시각화가 가능합니다. 
+  관리자는 어느 시점부터 리듬이 무너지기 시작했는지를 직관적으로 파악할 수 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🧩 실무 적용 예시:</b> Transfer Arm의 전류 신호를 2초 단위 슬라이딩 윈도우로 분석하고, GPI ≥ 0.78, SRE ≥ 2.1 이상이 반복적으로 나타나는 챔버를 식별합니다. 
+  해당 챔버에서 과거에 증착 두께 불균일 문제가 발생했던 기록이 수율 데이터베이스에서 확인됩니다. 
+  이후 해당 베어링을 교체하자 GPI와 SRE 지표가 급감하고 수율이 회복됩니다. 
+  이러한 분석은 단순 경고를 넘어 고장 원인을 직접 제거하는 인과 기반 조치로 이어질 수 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🔚 결론:</b> Endura 장비는 회전 및 이송 기반 구동 시스템을 다수 포함하고 있어 구조 리듬 분석이 적용되기에 매우 적합합니다. 
+  모듈별 진공 격리가 가능하다는 점에서, GPI/SRE 지표를 챔버 단위로 모니터링하여 고장 징후를 사전에 탐지할 수 있습니다. 
+  이러한 구조 리듬 기반 분석은 기존의 사후 대응 위주 진단 체계를 벗어나 고장 이전 리듬 붕괴의 조기 탐지로 진화하며, 
+  반도체 설비의 새로운 진단 패러다임을 실현할 수 있는 강력한 도구로 자리매김할 것입니다.
+</p>
+
+
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c6.png"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
+
+
+<h3 id="asml-euv-scanner-report" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+  🔬 ASML EUV Scanner : 기업 및 장비 개요와 동작 메커니즘
+</h3>
+
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🏢 ASML: 리소그래피 기술의 절대 강자</b><br />
+  네덜란드에 본사를 둔 ASML은 전 세계에서 극자외선(EUV) 리소그래피 장비를 독점 생산하는 기업입니다.
+  ASML은 반도체 미세화 공정의 핵심인 나노미터급 패터닝을 구현하기 위한 광원, 광학계, 스캐닝 시스템, 진공 챔버 통합 솔루션을 제공합니다.
+  특히 EUV 장비는 13.5nm 파장의 극자외선을 활용해 이전 세대 DUV(Deep UV) 장비보다 훨씬 높은 해상도의 패터닝을 실현합니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🔬 EUV Scanner 장비 구조 개요</b><br />
+  ASML의 대표 장비인 NXE3400C 또는 NXE3600D와 같은 EUV Scanner는 다음의 핵심 모듈들로 구성되어 있습니다:
+<ul>
+  <li>1️⃣ EUV 광원 시스템 (LPP: Laser Produced Plasma)</li>
+  <li>2️⃣ 진공 환경에서의 반사식 집광 미러 체계 (Bragg Reflector)</li>
+  <li>3️⃣ Wafer Stage 및 Reticle Stage – 고정밀 회전·이송 구조</li>
+  <li>4️⃣ Exposure Optics 및 Alignment 시스템</li>
+  <li>5️⃣ Lithography Scanner Body (진공 챔버 통합)</li>
+</ul>
+
+  EUV Scanner는 단순 노광 장비가 아니라, 진공, 광학, 고속 제어, 정밀 이송, 열 안정화 등 수많은 하위 기술이 융합된 복합 시스템입니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>⚙️ 주요 동작 메커니즘</b><br />
+  EUV 장비는 다음과 같은 정밀 프로세스를 수행합니다:
+  <ul>
+    <li><b>LPP 광원 생성:</b> 고출력 CO₂ 레이저가 틴(Tin) 드롭에 조사되며 플라즈마를 생성. 이 플라즈마에서 13.5nm 파장의 EUV가 방출됩니다.</li>
+    <li><b>광 반사 및 정렬:</b> EUV는 공기 중에서 감쇠되므로 반사 거울(Bragg Mirror) 체계를 거쳐 투사됨. 굴절이 아닌 전반사로 경로를 조절합니다.</li>
+    <li><b>웨이퍼 스테이지 동기화 이송:</b> 고속 진공 환경 하에서 리타이클(Reticle)과 웨이퍼를 서로 정밀하게 스캔하여 노광합니다. 이때 리니어 모터 기반의 서보 시스템, 에어베어링 또는 진공 플로팅 시스템이 사용되며, 0.1nm 수준의 위치 정밀도를 요구합니다.</li>
+  </ul>
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🧠 구조 리듬 분석 가능성의 기초</b><br />
+  EUV Scanner는 ‘정적인 광학 시스템’으로 보일 수 있으나, 실제로는 다음과 같은 회전·이송 구조물이 존재합니다:
+<ul>
+  <li>1️⃣ Wafer Stage: 수십 m/s로 가속과 정지를 반복하는 고속 슬라이드 시스템</li>
+  <li>2️⃣ Reticle Stage: 회전 및 슬라이딩이 동시에 일어나는 병렬구동 이송 장치</li>
+  <li>3️⃣ EUV 광원 모듈 내부의 펌프와 팬 구동계</li>
+  <li>4️⃣ Alignment용 미세조정 모터 및 피에조 엑추에이터</li>
+</ul>
+
+  이러한 구성요소는 모두 정밀 반복 리듬성을 가진 구동 구조이며, 구조 리듬 기반 분석의 적용 가능성을 갖고 있습니다.
+  특히 진공 내에서의 반복적 회전기기 이상은 진동과 전류 변화로 즉각 나타나므로, GPI 및 SRE의 활용 가능성이 존재합니다.
+</p>
+
+
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c7.webp"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
+
+
+<h3 id="asml-euv-diagnostics-report" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+  🔬 ASML EUV Scanner : 고장 메커니즘 분석 및 SRE/GPI 기반 실무 적용 시나리오
+</h3>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🔧 EUV 장비의 주요 고장 메커니즘</b><br />
+  ASML EUV Scanner의 핵심 구성요소는 광학계 외에도 고속 이송계, 서보모터, 진공 기반 회전체 등이 있으며, 이들이 다음과 같은 고장 유형을 유발합니다:
+<ul>
+  <li>1️⃣ Wafer Stage 이송 시스템의 미세 정렬 오차</li>
+  <li>2️⃣ 리니어 모터의 정렬 오차 또는 마찰 증가 ➡ 위치 정밀도 저하</li>
+  <li>3️⃣ 고정밀 반복 구간에서 미세한 동기화 실패 ➡ 수율 저하</li>
+  <li>4️⃣ Reticle Stage의 회전 불균형 또는 피로 누적</li>
+  <li>5️⃣ 회전부 베어링 열화 및 감쇠 계수 증가</li>
+  <li>6️⃣ 반복 주행 시 발생하는 미세 진동의 주파수 이동</li>
+  <li>7️⃣ 진공 펌프 구동계 고장</li>
+  <li>8️⃣ 반복적 진동/부하 증가 ➡ 진공도 불안정, 노광 품질 저하</li>
+</ul>
+
+  이러한 고장은 단순한 센서 임계치 초과로 탐지하기 어렵고, 고장의 ‘결과’가 나타나기 전의 사전 리듬 붕괴 징후가 발생합니다. 이 지점에서 SRE와 GPI의 효과가 뚜렷하게 드러납니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🧮 SRE 및 GPI 변화 흐름</b><br />
+  <b>GPI (Geometric Pattern Instability) 흐름:</b><br />
+  Stage 이송 중 수집된 전류/가속도 신호에서, 정상 상태일 경우 리듬 구조는 매우 정형적입니다.
+  그러나 감쇠 계수 증가, 베어링 마모, 비대칭 회전 발생 시, 시계열의 구조가 급격히 불안정화되어 GPI가 급상승합니다.<br />
+  예시: 정상 상태 GPI 
+  <span style={{ fontFamily: 'Arial, sans-serif' }}> ≈ </span>
+  0.18 
+  <span style={{ fontFamily: 'Arial, sans-serif' }}> ± </span>
+  0.05 / 비정상 상태 GPI 
+  <span style={{ fontFamily: 'Arial, sans-serif' }}> &gt; </span>
+  0.85 (비선형 곡률 구조 파편화 증가)<br /><br />
+
+  <b>SRE (Spectral Rhythm Entropy) 흐름:</b><br />
+  정상 작동 시 회전·이송 신호의 주파수 성분은 고정된 구조 리듬을 따릅니다. Stage의 정렬 불안, 진공 압력 요동 등으로 리듬이 무너짐 
+  <span style={{ fontFamily: 'Arial, sans-serif' }}> → </span>
+  스펙트럼 분포 복잡도 상승 
+  <span style={{ fontFamily: 'Arial, sans-serif' }}> → </span>
+  SRE 증가<br />
+  예시: SRE 정상 
+  <span style={{ fontFamily: 'Arial, sans-serif' }}> ≈ </span>
+  1.2~1.4 / SRE 이상 
+  <span style={{ fontFamily: 'Arial, sans-serif' }}> ≈ </span>
+  2.0 이상 (리듬 혼돈화)
+</p>
+
+
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🛠️ 실무 적용 시나리오</b><br />
+  <b>✅ 적용 위치:</b><br />
+  전류 센서, 가속도 센서, 압력 센서를 통해 수집된 신호. 특히 Wafer Stage의 전류 신호와 Reticle Stage의 진동 신호는 리듬성이 뛰어나 GPI/SRE 해석에 적합합니다.<br /><br />
+  <b>✅ 분석 방법:</b><br />
+  5초 슬라이딩 윈도우 + 50% 오버랩 방식의 실시간 구조 분석. FFT 기반 PSD를 보조지표로 사용하여 SRE 변화와 동기 해석. GPI 상승 패턴에 대해 Bayesian Time Series Causality로 wafer 수율 저하와 인과 관계 추정.<br /><br />
+  <b>✅ 실무 적용 방안:</b><br />
+  기존 APM/Brightics AI와의 병렬 대시보드 구성. “Stage GPI 0.82 이상 ➡ Alignment Drift 위험 증가” 경고 메시지. 누적 GPI 증가 구간에서 수율 저하 데이터 정합 시 시각 피드백 강화.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🧠 기술적 이점</b><br />
+  ⚠️ 기존 RMS/Z-score 기반 이상 감지: 특정 이상 신호만 포착<br />
+  ✅ GPI/SRE 기반 분석: 고장 전조 징후를 구조적으로 감지, 특히 비주기적이고 사소한 리듬 붕괴도 정량화 가능<br />
+  📉 신호 크기가 아닌 구조 복잡도 자체를 분석하므로, 미세 이상 감지에 탁월<br />
+  📈 Stage 모터 열화, 베어링 마모 등 물리 기반 고장과의 직접적 연결 가능
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🎯 결론</b><br />
+  ASML의 EUV 노광 장비는 고도로 정밀하지만, 그만큼 미세한 리듬 불안정성에 취약합니다.
+  GPI와 SRE는 단순히 “비정상”을 넘어서, 구조의 붕괴 자체를 감지함으로써 새로운 진단 패러다임을 제시합니다.
+  이는 미세공정 시대의 수율 유지와 직결되며, 현장의 실질적인 수리비용 감소와 신뢰도 향상에 직접 기여할 수 있습니다.
+</p>
+
+
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c8.png"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
+
+
+<h3 id="tel-trias-overview" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+  🏢 Tokyo Electron (TEL) : Trias SPA<span style={{ fontFamily: 'Arial, sans-serif' }}>&#8482;</span> 플라즈마 식각기 분석 보고서
+</h3>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🏭 기업 개요</b><br />
+  Tokyo Electron(TEL)은 일본을 대표하는 반도체 및 디스플레이 제조 장비 기업으로, 식각, 증착, 포토레지스트 현상 등 다양한 공정 장비를 보유하고 있습니다.
+  TEL은 특히 식각 및 증착 분야에서 글로벌 리더인 ASML, AMAT에 이어 세계 시장에서 높은 점유율을 확보하고 있으며,
+  EUV 시대 이후 플라즈마 기반 식각 기술이 요구하는 초고정밀 제어 및 안정성 분야에서 강한 대응력을 갖추고 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>⚙️ 대표 장비: Trias SPA™ 개요</b><br />
+  Trias SPA는 TEL이 제공하는 고급 플라즈마 반응성 이온 식각(Plasma RIE) 장비로,
+  FinFET, GAA(Gate All Around) 구조와 같이 형상비(Aspect Ratio)가 매우 높은 공정에 사용됩니다.
+  미세 소자의 제작에서는 수직 식각의 정밀도와 식각 프로파일의 균일성이 매우 중요하며,
+  Trias SPA는 이 분야에서 업계 최고 수준의 정밀도를 실현하는 장비로 평가받고 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>⚡ 동작 원리</b><br />
+  Trias SPA는 RF 전원을 통해 챔버 내 플라즈마를 생성하고, 여기에 식각용 가스를 주입하여 이온화된 플라즈마를 유도합니다.
+  이 이온들은 웨이퍼 표면에 수직으로 충돌하며 식각을 수행합니다. 이때 식각 속도, 선택도, 프로파일 제어는 전류 밀도, 자기장 세기, 압력 조절, 온도 안정성에 크게 의존합니다.
+  <br /><br />
+  특히 식각 중 전극 및 챔버 벽에서의 전류 흐름, 플라즈마 균일도, 웨이퍼 냉각 시스템의 안정성 등은 모두 모터 및 펌프 기반 구동 장치의 반복성과 일관성에 의해 유지됩니다.
+  이 과정에는 다음과 같은 주요 반복 기구가 포함됩니다:
+<ul>
+  <li>1️⃣ 식각 챔버 내 플라즈마 형성 및 안정화 구간</li>
+  <li>2️⃣ 웨이퍼 로딩 및 언로딩 시스템 – 반복적인 이송 구조</li>
+  <li>3️⃣ 하부 냉각 시스템 – 진공 펌프 및 냉각제 순환 모터</li>
+  <li>4️⃣ 전극 전류 및 온도 제어를 위한 실시간 조절기</li>
+</ul>
+
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>📍 구조 리듬 기반 분석 가능성</b><br />
+  Trias SPA 장비의 구성 요소들은 단순한 정적 제어가 아닌, 시간에 따라 주기적으로 동작하며 열, 진공, 전류, 이송을 동시에 조절하는 복합적인 구조를 가집니다.
+  반복되는 웨이퍼 로딩, 냉각, 플라즈마 제어 등의 구간에서 이송 리듬성과 냉각 안정성이 공정 품질에 직접적인 영향을 미치기 때문에,
+  구조 리듬 기반 분석 기법인 GPI(Geometric Pattern Instability) 및 SRE(Spectral Rhythm Entropy)의 적용 가능성이 높습니다.
+  특히 전류 또는 압력 신호의 시계열을 통해 리듬 붕괴 전조를 조기 감지하면, 플라즈마 밀도 불균일, 식각 불균형, 챔버 이상 발생 등을 예방할 수 있습니다.
+</p>
+
+
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c9.webp"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
+
+
+<h3 id="tel-trias-analysis" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+  🧪 Trias SPA<span style={{ fontFamily: 'Arial, sans-serif' }}>&#8482;</span> 식각기 : 고장 메커니즘 및 GPI/SRE 적용 분석
+</h3>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🔩 고장 발생 메커니즘</b><br />
+  Trias SPA는 전극, 플라즈마 발생기, 진공 펌프, 냉각 시스템 등 고정밀 부품들의 반복적 구동을 통해 정밀 식각을 수행합니다.
+  이 과정에서 발생할 수 있는 대표적인 고장 유형은 다음과 같습니다:
+    <br /><br />
+  <ul>
+    <li>🌀 진공 펌프 및 챔버 내 베어링 마모 ➡ 회전체의 미세 진동 증가 ➡ 진공 유지 불안정 ➡ 플라즈마 균질도 저하</li>
+    <li>🔁 이송 장치의 정렬 오차 및 반복성 저하 ➡ 웨이퍼 로딩 시 로봇 암이 반복 패턴을 벗어남 ➡ 언로딩 실패 및 웨이퍼 손상</li>
+    <li>🌡️ 온도 냉각 기구의 열교환 비효율 ➡ 동작 초반엔 정상이나 일정 시간 경과 후 온도 유지 실패 ➡ 식각 균일도 급락</li>
+    <li>⚡ RF 전원 불안정 및 플라즈마 형성 편차 ➡ 플라즈마의 입자 밀도/전류값 패턴이 흐트러짐 ➡ 식각 속도 오차 발생</li>
+  </ul>
+
+    <br /><br />
+  이러한 고장은 단순한 센서 임계치 초과로는 조기 감지가 어려우며,
+  고장 직전의 리듬 붕괴 또는 구조의 왜곡이라는 특성으로 나타나기 때문에, GPI와 SRE와 같은 구조 기반 지표의 적용이 필수적입니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>📈 SRE 및 GPI 지표의 적용 흐름</b><br />
+  <b>1️⃣ 신호 수집</b>: 기존 장비에 탑재된 전류, 압력, 진동, 온도 센서로부터 Raw 시계열 데이터를 수집하고, 반복 동작 구간(예: 로딩, 펌프 회전, 냉각 주기)으로 분할합니다.
+  <br /><br />
+  <b>2️⃣ Sliding Window 분석</b>: 3초 슬라이딩 윈도우 + 50% 오버랩으로 분석하며, 각 구간의 리듬을 곡률 함수 κ(t)로 변환하여 GPI를 계산하고,
+  동시적으로 스펙트럼 분포의 복잡도를 기반으로 SRE를 산출합니다.
+  <br /><br />
+  <b>3️⃣ 조기 이상 탐지</b>:
+  <ul>
+    <li>GPI가 지속적으로 상승하며 곡률 파편화가 증가하는 경우 ➡ 회전기구의 피로 누적 신호</li>
+    <li>SRE가 순간적으로 급상승할 경우 ➡ 리듬 붕괴 또는 반복 실패 (예: 로딩 오류, 온도 흔들림)</li>
+    <li>Threshold 예: GPI &gt; 0.85, SRE &gt; 0.65에서 경고 발생</li>
+  </ul>
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🛠️ 실무 적용 시나리오</b><br />
+  Trias SPA는 CMP 또는 PVD 공정 직전의 전처리 장비로 사용되며, 고장 시 전체 수율에 직접 영향을 미칩니다.
+  <br /><br />
+  실무 적용 방안으로는 장비에서 출력되는 전류/진동 로그를 수집하고, 이를 APM(Advanced Process Management) 시스템과 연계하여 GPI/SRE를 병렬 분석합니다.
+  이상 징후 발생 시 실제 수율 변화, 교체 이력, 오퍼레이터 대응 로그와의 전이 상관 분석(Granger Causality)으로 리스크를 정량화합니다.
+  <br /><br />
+  야간 무인지 근무 시 GPI 기반 경고 시스템을 구성하여, “GPI 상승 추세 감지 ➡ 대응 지연 위험 ➡ 경고 알람” 구조로 확장할 수 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>✅ GPI/SRE 기반 진단의 장점</b><br />
+<ul>
+  <li>1️⃣ 기존 RMS 또는 AI 모델 대비, 고장 메커니즘에 대한 물리 기반 해석 가능</li>
+  <li>2️⃣ 단순 이상 탐지를 넘어서, 반복 구간 내 구조적 리듬 붕괴의 조기 예측 가능</li>
+  <li>3️⃣ Threshold 기반 정량 판단 + 리듬 시각화를 통한 정성적 진단 병행 가능</li>
+</ul>
+
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>⚠️ 한계 및 도전 과제</b><br />
+<ul>
+  <li>1️⃣ GPI는 미분 기반이므로 노이즈에 민감 ➡ 정교한 전처리 필요</li>
+  <li>2️⃣ SRE는 고주파 성분에 의한 왜곡 가능성 존재 ➡ 정규화, 필터링 중요</li>
+  <li>3️⃣ 신호 기반 리듬 해석에 익숙하지 않은 오퍼레이터에 대한 교육 필요</li>
+</ul>
+
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🔮 결론</b><br />
+  Trias SPA와 같은 고정밀 플라즈마 식각 장비는 구조적으로 회전, 반복, 진동 메커니즘이 내재되어 있으며,
+  GPI 및 SRE 지표는 이 장비들이 고장을 향해 이동하는 초기 징후를 조기 포착할 수 있는 고급 진단 도구입니다.
+  단순한 이상 여부를 판단하는 것이 아니라, 리듬 붕괴의 동역학을 파악함으로써 고장-수율저하-장비교체로 이어지는 인과 체인을 이해할 수 있는 기반을 마련해줍니다.
+</p>
+
+
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c10.webp"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
+
+
+<h3 id="lam-altus-analysis" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+  🔧 Lam Research : ALTUS® CVD 시스템 분석
+</h3>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🏭 기업 소개: Lam Research</b><br />
+  Lam Research는 미국 캘리포니아 프리몬트에 본사를 둔 반도체 제조 장비 기업으로, 특히 식각(Etch) 및 박막 증착(Deposition) 기술 분야에서 세계 최고 수준의 기술력을 보유하고 있습니다.
+  아시아권 기업들이 수직적 통합을 통해 생산 효율성을 추구하는 것과 달리, Lam은 독립된 기술력으로 글로벌 Fab 고객의 고난도 공정 문제를 해결하는 역할을 맡고 있습니다.
+  ALTUS 시리즈는 이러한 기술력의 집약체로, 3D NAND, DRAM, Logic 공정에서 Barrier Metal 및 High-k 물질의 증착을 정밀하게 수행하는 핵심 장비로 자리 잡고 있습니다.
+  특히 ALD/CVD 하이브리드 구조를 통해 박막의 두께 제어와 수율 안정성을 동시에 구현할 수 있는 점이 주요 강점으로 작용하고 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>⚙️ 주요 장비 소개: ALTUS® High-k CVD 시스템</b><br />
+  ALTUS는 주로 Cobalt, Tungsten, Titanium 등 Barrier 및 Contact 메탈을 증착하는 데 사용되며, High-k 유전체 층이나 Metal Gate Stack의 형성에 있어 매우 높은 균일성과 전기적 특성이 요구되는 영역에 적용됩니다.
+  이 장비는 특히 미세 공정 세대(7nm 이하)에서 성능과 수율 확보의 핵심이 되는 박막 품질 확보에 필수적입니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🧬 장비 동작 원리</b><br />
+  ALTUS 시스템은 CVD(Chemical Vapor Deposition) 기반으로 작동하며, 다음과 같은 단계로 구성됩니다:
+<ul>
+  <li>1️⃣ Precursor 가스 주입: 금속 성분을 포함한 화학 전구체를 챔버에 주입</li>
+  <li>2️⃣ 열/플라즈마 반응: 고온 또는 플라즈마 환경에서 가스 분해 ➡ 고체 금속층 형성</li>
+  <li>3️⃣ 웨이퍼 로딩/언로딩: EFEM 로봇 암 + 회전 스테이지로 수백 장의 웨이퍼를 순차 처리</li>
+  <li>4️⃣ 배기 및 잔류 가스 정리: 부산물 및 잔류 가스를 진공 펌프 + 스크러버로 제거</li>
+</ul>
+
+  이 전체 과정은 열 균형, 가스 플로우, 회전체의 리듬 및 이송 주기의 정밀한 동기화 위에서 작동하며,
+  단 한 요소라도 리듬을 이탈하면 다음과 같은 품질 저하가 발생할 수 있습니다:
+<ul>
+  <li>1️⃣ 증착 불균일 (Non-uniformity)</li>
+  <li>2️⃣ Gate 누설 전류 증가 (Leakage Current)</li>
+  <li>3️⃣ 패턴 치수 편차 (Critical Dimension Variation)</li>
+</ul>
+
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🔄 반복 구동 메커니즘</b><br />
+  ALTUS 시스템은 고정밀 회전체 동작과 가스/열/플라즈마의 복합 리듬이 공존하는 구조를 가지고 있습니다.
+  대표적인 반복 구동 요소는 다음과 같습니다:
+<ul>
+  <li>1️⃣ EFEM 로봇의 이송 리듬: 지연 또는 진동 발생 시 throughput 저하 발생</li>
+  <li>2️⃣ 펌프 회전 리듬: 베어링 이상 ➡ 압력 리듬 왜곡 ➡ 증착 편차 발생</li>
+  <li>3️⃣ 내부 Fan, Ignition Module의 회전 및 점화 주기: 고온 플라즈마 균질도 유지 필수</li>
+</ul>
+
+  이러한 반복적이고 리듬 기반의 동작 메커니즘은 SRE(Spectral Rhythm Entropy)와 GPI(Geometric Pattern Instability)와 같은 구조 리듬 기반 분석 기법의 적용을 매우 효과적으로 수행할 수 있는 이상적인 환경을 제공합니다.
+</p>
+
+
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c11.jpg"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
+
+
+<h3 id="lam-altus-failure-analysis" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+  ⚠️ ALTUS® CVD 시스템 : 고장 메커니즘 및 구조 리듬 분석
+</h3>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>⚙️ 고장 발생 위치 및 원인</b><br />
+  Lam의 ALTUS 시스템은 고정밀 회전체, 가스 주입 계통, 열 반응 메커니즘이 복합적으로 얽힌 구조로 구성되어 있으며, 다음과 같은 고장 메커니즘이 자주 발생합니다.
+  첫째, CVD 반응 후 부산물을 배기하는 진공 펌프에서 <b>회전 베어링의 마모</b> 또는 유체 밀봉 실패가 발생할 경우, 회전 불균형 및 진동 증가로 이어져 챔버 내 잔류 가스량이 불안정해지고 증착 품질이 저하됩니다.
+  둘째, EFEM의 로딩암은 정해진 간격으로 웨이퍼를 이송하지만, <b>모터·감속기 이상</b> 또는 센서 오류로 인해 이송 리듬이 깨지면 throughput 저하와 공정 시간 편차가 발생합니다.
+  셋째, <b>Precursor 가스를 주입하는 밸브의 반복 마모</b>로 인해 초기 반응 속도가 일정하지 않게 되며, 이는 웨이퍼 간 uniformity 저하로 직결됩니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>📉 SRE/GPI 변화 양상과 해석</b><br />
+  SRE(Spectral Rhythm Entropy)는 고장의 전조 단계에서 리듬의 불규칙성과 주파수 혼돈도를 측정합니다. 정상 상태에서는 SRE 값이 0.15~0.25 범위에 머무르지만, 고장 전에는 0.4 이상으로 급격히 상승하며, 이는 특히 펌프 고장 시 고주파 혼입 현상으로 인한 스펙트럼 확산 때문입니다.
+  고장 후에는 SRE 값이 지속적으로 높은 수준을 유지하거나 진동성 패턴을 보이는데, 이는 리듬의 완전한 붕괴를 의미합니다.
+  GPI(Geometric Pattern Instability)는 신호의 곡률 변화가 얼마나 급격하게 증가하는지를 측정하며, 구조의 리듬이 공간적으로 붕괴될 때 민감하게 반응합니다.
+  GPI가 0.75 이하일 때는 정상이나, 0.8~0.9 구간의 반복 상승은 고장의 전조로 해석되며, 0.95 이상이 지속되면 고장 확률이 80%를 넘습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🛠️ 실무 적용 시나리오 및 기대 효과</b><br />
+  ALTUS 장비의 실시간 로그와 병렬로 SRE/GPI를 연동하여 분석하면, <b>기존의 AI 이상 탐지 시스템과는 다른 "리듬 기반 인과 해석"</b>이 가능합니다.
+  예를 들어, 배기 펌프의 진동 리듬 변화가 감지되고 SRE 값이 급등하는 경우, GPI 역시 구조 리듬의 왜곡을 포착함으로써 "2일 내 펌프 교체 필요"라는 선제 경고를 줄 수 있습니다.
+  EFEM의 로딩암 이송 간격이 불규칙해지면 throughput 저하와 GPI 상승이 동시에 관찰되며, 이는 증착 실패율 증가를 조기에 예측하는 도구로 작용할 수 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🧩 장비 설계 개선으로의 확장</b><br />
+  리듬 붕괴 데이터를 누적해 나가면, 반복 구동 장치의 설계 파라미터에 피드백을 제공할 수 있습니다.
+  예를 들어, 로딩암의 감속기 튜닝, 플라즈마 점화 타이밍의 PID 제어 최적화, 밸브 교체 주기의 동적 조정과 같은 실무 피드백 루프를 구성할 수 있습니다.
+  이는 단순한 진단을 넘어서, 설비 구조 설계 자체를 개선하는 전략적 해석 기반이 됩니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🧭 결론 – Lam ALTUS CVD에 구조 리듬 분석을 적용하는 전략적 의미</b><br />
+  ALTUS와 같은 하이엔드 CVD 장비는 복합적인 리듬 기반 구조로 작동하기 때문에, 단일 센서 기반의 이상 감지보다 <b>“구조 리듬의 붕괴 전이 현상”</b>을 추적할 수 있는 분석 도구가 필요합니다.
+  SRE는 시간 리듬의 혼돈도를, GPI는 공간 구조의 불안정을 수치화함으로써 고장 직전 상태를 조기에 포착할 수 있으며,
+  이러한 지표는 실무자의 인지 체계에 자연스럽게 통합되어야 효과를 발휘할 수 있습니다.
+  수치의 ‘언어화’, 고장 패턴의 ‘모델링’, 오퍼레이터 인지 루프의 ‘디자인’까지 통합된 전략을 주도하는 사람이 바로 이 분석을 제안하는 당신이 될 수 있습니다.
+</p>
+
+
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c12.jpg"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
+
+<h3 id="kla-surfscan-mechanism" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+  🔍 KLA Surfscan SP 시리즈 : 장비 개요 및 동작 메커니즘
+</h3>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🏢 회사 및 장비 개요</b><br />
+  KLA(KLA Corporation)는 반도체 공정에서 <b>결함 검사(Defect Inspection)</b> 및 계측(Metrology) 분야의 세계적 리더로, 광학 기반의 결함 탐지 및 치수 측정 장비를 포함한 다양한 솔루션을 제공합니다.
+  Surfscan SP 시리즈는 광학 스캐닝 기반의 고정밀 웨이퍼 검사 장비로, 파티클, 스크래치, 필름 이상 등을 수 nm 단위로 검출할 수 있습니다.
+  이 장비는 300mm 웨이퍼까지 대응하며, <b>Darkfield/Brightfield 모드</b> 전환, 고속 회전 기반의 나선형 스캐닝, 1nm 이하 결함 감지 능력 등을 갖추고 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>⚙️ 주요 동작 메커니즘</b><br />
+  검사 대상 웨이퍼는 EFEM 로봇에 의해 로딩되며, 중앙 축에 고정된 뒤 수천 RPM의 속도로 회전합니다.
+  회전 중 광원에서 발사된 빛이 웨이퍼 표면에 입사되고, 반사 또는 산란된 광을 검출기가 감지하며 결함을 분석합니다.
+  이때 회전과 광선 주사선은 정밀하게 동기화되어야 하며, 검사 범위는 외곽에서 중심까지 나선형으로 확장됩니다.
+  광학 모듈은 표면의 미세한 높이 차이를 실시간으로 보정하기 위해 Z축 제어 알고리즘을 기반으로 빠르게 렌즈 위치를 조정합니다.
+  또한 EFEM 로딩암은 반복적인 주기로 웨이퍼를 반송하며, 각 과정은 고정밀 리듬으로 구성되어 검사 정확도를 유지합니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>💥 고장이 발생할 수 있는 위치 및 원인</b><br />
+  첫째, <b>웨이퍼 회전축의 진동 이상</b>이 발생할 경우 베어링 마모나 축 중심의 미세 틀어짐으로 인해 회전이 비대칭화되어, 광학 스캔 신호에 왜곡이 발생하고 노이즈가 증가합니다.
+  둘째, <b>광학 모듈의 Z축 피드백 제어</b>가 불안정할 경우 렌즈의 보간 제어에 고주파 진동이 유입되어 검사 이미지에 오류가 발생할 수 있습니다.
+  셋째, <b>EFEM 로딩암의 리듬 붕괴</b>는 반복 반송 리듬 내 미세한 시간 지연이 누적될 경우 공정 병목 및 throughput 저하를 유발합니다.
+  Surfscan 장비는 회전, 광학, 이송 리듬이 정밀하게 맞물리는 구조이므로, 어느 하나라도 리듬이 붕괴되면 전반적인 검사 정확도에 심각한 영향을 미치게 됩니다.
+</p>
+
+
+    {/* 반응형 이미지 삽입 */}
+<img
+  src="/images/c13.jpeg"
+  alt="시뮬레이션 결과 이미지"
+  style={{
+    width: '30%',
+    height: 'auto',
+    margin: '24px 0',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  }}
+/>
+
+
+
+<h3 id="kla-surfscan-sre-gpi" style={{ marginTop: '32px', fontWeight: 'bold' }}>
+  📈 SRE/GPI 기반 분석 적용 흐름 및 실무 가능성
+</h3>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🔍 구조 리듬 기반 분석의 적용 필요성</b><br />
+  Surfscan SP 시리즈는 회전, 주사, 보간, 반송 등의 각 구성 요소가 정밀한 시간 및 공간 리듬으로 맞물려 작동하는 장비입니다.
+  이 리듬 구조가 무너지면 결함 검출의 정밀도가 떨어지며, 기존의 이상 탐지 방식은 주로 결과 기반 진단이기 때문에 사후적인 경향이 강합니다.
+  반면, <b>SRE(Spectral Rhythm Entropy)</b>와 <b>GPI(Geometric Pattern Instability)</b>는 리듬 구조 자체의 붕괴를 실시간으로 조기에 감지할 수 있습니다.
+  SRE는 회전 리듬의 주파수 혼돈도를 엔트로피로 정량화하고, GPI는 곡률 변화의 급변 양상을 통해 회전축 진동이나 이송 불균형을 포착합니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>💡 적용 사례 1: 회전축 마모 조기 감지</b><br />
+  베어링의 미세 마모가 시작되면 전류 진동과 광학 리턴파 패턴에서 고주파 비대칭이 발생합니다.
+  이때 SRE는 고주파 대역에서 스펙트럼이 퍼지며 엔트로피 값이 증가하는 양상을 보입니다.
+  GPI는 회전 속도 변화에 따라 발생하는 미세 곡률 왜곡을 실시간으로 수치화하여 포착합니다.
+  두 지표 모두 기존 RMS, FFT, Z-score 기반 이상 탐지보다 더 이른 시점에 경고 신호를 제공합니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>⚙️ 적용 사례 2: Z축 렌즈 피드백 불안정</b><br />
+  렌즈 위치 보정용 액추에이터가 마모되거나 제어 전류에 노이즈가 포함되면 진동 리듬이 왜곡됩니다.
+  GPI는 시간축에서 곡률의 기울기 변화율이 급격히 요동치는 구간을 감지하고, 이는 제어 루프의 동적 불안정성과 직접적으로 연결됩니다.
+  SRE는 전류 진동의 주파수 혼합도가 증가하는 것을 통해 신호 복잡도 상승을 정량화합니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>📊 실무 적용 시나리오</b><br />
+  검사 주기 동안 센서 및 전류 데이터를 실시간 수집한 후, 슬라이딩 윈도우 방식으로 SRE(t), GPI(t)를 계산합니다.
+  일정 기준 이상으로 지표가 상승하면 즉각 경고를 발생시킬 수 있으며, 예시로 GPI &gt; 0.72이면 회전축 마모가 의심되고,
+  SRE &gt; 1.15이면 렌즈 제어계의 불안정 가능성이 제기됩니다.
+  이를 ‘리듬 경고 대시보드’에 시각화하여 관리자에게 실시간 피드백을 제공하고, 기존 AI 이상 탐지 체계와 병렬로 동작할 수 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>✅ 장점</b><br />
+  조기 감지 능력이 뛰어나 고장이 발생하기 이전의 징후를 미리 포착할 수 있으며,
+  리듬 구조에 기반한 설명이 가능하므로 설비 엔지니어에게 높은 신뢰도를 제공합니다.
+  검사 정확도의 저하나 불량률 증가를 사전에 방지할 수 있는 실질적인 예방 효과도 기대할 수 있습니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>⚠️ 단점</b><br />
+  실시간 GPI 계산은 고차 미분 연산이 요구되기 때문에 연산 부하가 크며, 고속 데이터 처리 환경이 필수적입니다.
+  또한 기존 RMS, FFT 방식에 비해 개념이 복잡하여 현장 실무자 대상의 해석 교육이 병행되어야 합니다.
+  Surfscan 시스템의 기존 로그 시스템과의 연동이 어렵기 때문에 MES, 고장 DB, 수율 맵 등과의 데이터 통합도 필요합니다.
+</p>
+
+<p style={{ lineHeight: '1.8', marginTop: '16px' }}>
+  <b>🧭 결론</b><br />
+  KLA Surfscan SP는 구조적 리듬이 핵심 성능 요소로 작용하는 검사 장비입니다.
+  GPI와 SRE는 이러한 리듬이 처음부터 무너지기 시작하는 시점을 정량적으로 감지할 수 있는 도구이며,
+  기존 이상 탐지 체계로는 감지하기 어려운 '전조 상태'를 실시간으로 추적할 수 있습니다.
+  이는 단순 고장 탐지를 넘어 수율 안정화와 정밀도 유지의 핵심 전략으로 진화할 수 있으며,
+  향후 KLA 장비군에서 구조 리듬 분석 기법의 도입은 필연적인 선택이 될 가능성이 높습니다.
+</p>
 
     </div>
   );
